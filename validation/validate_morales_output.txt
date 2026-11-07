@@ -1,0 +1,7 @@
+measured energy 45.3 kJ; explained by power-up + traction 27.2 kJ
+turning share of measured energy: 40%
+turning energy per rad (measured residual): 5193 ± 673 J/rad
+model point turn  : 506 J/rad  -> implied gain 10.3x
+model arc R=1 m   : 753 J/rad  -> implied gain 6.9x
+model arc R=2 m   : 956 J/rad  -> implied gain 5.4x
+model arc R=3 m   : 1023 J/rad  -> implied gain 5.1x

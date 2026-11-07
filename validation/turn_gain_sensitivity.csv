@@ -1,0 +1,3 @@
+param,value,dE_vs_A*_median_pct,dE_vs_A*_mean_pct,dE_vs_TA*_median_pct,dE_vs_TA*_mean_pct,dE_vs_TA*+turn_median_pct,dE_vs_TA*+turn_mean_pct
+turn_gain,2.0,-41.0,-40.1,-25.6,-26.8,0.0,-0.5
+turn_gain,5.0,-54.0,-49.3,-43.6,-42.2,0.0,-0.0
