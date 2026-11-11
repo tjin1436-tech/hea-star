@@ -27,6 +27,23 @@ from energy_model import G, Robot, rotate_energy, track_energy
 DIRS = [(1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1), (0, -1), (1, -1)]
 STEP = math.pi / 4
 ARC_SCALES = (1, 2, 4, 8)   # 45-deg arcs with radii ~2.9, 5.8, 11.7, 23.4 cells
+SAMPLE_DS = 0.1             # sampling interval (cells) for edge-cost integration and collision checking
+COLL_MARGIN = 0.05          # half-width (cells) of the box checked around every sample, >= half the sample gap
+
+
+def swept_cells(S, margin=COLL_MARGIN):
+    """Relative cells (closed unit squares centred on integer points) that the curve sampled by S can touch.
+    Every point of the curve lies within half a sample gap of a sample, so checking all cells that overlap a
+    box of half-width max(margin, 0.55 * gap) around each sample is conservative: a primitive is valid only if
+    it neither enters nor touches a blocked cell (no corner cutting)."""
+    gap = float(np.linalg.norm(np.diff(S, axis=0), axis=1).max()) if len(S) > 1 else 0.0
+    d = max(margin, 0.55 * gap)
+    cells = set()
+    for x, y in S:
+        for cx in range(math.ceil(x - d - 0.5), math.floor(x + d + 0.5) + 1):
+            for cy in range(math.ceil(y - d - 0.5), math.floor(y + d + 0.5) + 1):
+                cells.add((cx, cy))
+    return sorted(cells)
 
 
 def _bezier(p1, th0, th1, n):
@@ -43,8 +60,9 @@ def primitives(h, arcs=True):
     """List of dicts: dh, off, R, length, samples (k,2)."""
     d = np.array(DIRS[h])
     th = h * STEP
-    out = [dict(name="S", dh=0, off=tuple(d), R=math.inf, length=float(np.linalg.norm(d)),
-                samples=np.linspace([0, 0], d, 5))]
+    Ls = float(np.linalg.norm(d))
+    out = [dict(name="S", dh=0, off=tuple(d), R=math.inf, length=Ls,
+                samples=np.linspace([0, 0], d, int(math.ceil(Ls / SAMPLE_DS)) + 1))]
     if arcs:
         for s in (1, -1):
             d2 = np.array(DIRS[(h + s) % 8])
@@ -55,7 +73,7 @@ def primitives(h, arcs=True):
                 R = chord / (2 * math.sin(STEP / 2))
                 L = R * STEP
                 out.append(dict(name=name, dh=s, off=tuple(off), R=R, length=L,
-                                samples=_bezier(off, th, th + s * STEP, int(math.ceil(L / 0.25)) + 1)))
+                                samples=_bezier(off, th, th + s * STEP, int(math.ceil(L / SAMPLE_DS)) + 1)))
     for s in (1, -1):
         out.append(dict(name="R", dh=s, off=(0, 0), R=0.0, length=0.0, samples=np.zeros((1, 2))))
     return out
@@ -82,12 +100,11 @@ class Lattice:
                     continue
                 S = p["samples"]
                 valid = np.ones((n, n), bool)
-                ix = np.rint(X[None] + S[:, 0, None, None]).astype(int)
-                iy = np.rint(Y[None] + S[:, 1, None, None]).astype(int)
-                inside = (ix >= 0) & (ix < n) & (iy >= 0) & (iy < n)
-                valid &= inside.all(0)
-                ixc, iyc = np.clip(ix, 0, n - 1), np.clip(iy, 0, n - 1)
-                valid &= tm.free[ixc, iyc].all(0)
+                Xi, Yi = np.mgrid[0:n, 0:n]
+                for dx, dy in swept_cells(S):
+                    cx, cy = Xi + dx, Yi + dy
+                    inside = (cx >= 0) & (cx < n) & (cy >= 0) & (cy < n)
+                    valid &= inside & tm.free[np.clip(cx, 0, n - 1), np.clip(cy, 0, n - 1)]
                 z = np.stack([map_coordinates(tm.elev, [X + sx, Y + sy], order=1, mode="nearest")
                               for sx, sy in S])
                 seg = np.linalg.norm(np.diff(S, axis=0), axis=1) * tm.cell

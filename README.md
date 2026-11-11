@@ -29,19 +29,31 @@ Everything runs on a CPU. No GPU is needed.
 | `model_figures.py`, `result_figures.py`, `paper_figs_extra.py` | Paper figures |
 | `energy_kaggle.ipynb` | All steps in one notebook, tested on Kaggle (CPU) |
 | `results/` | The result files reported in the paper |
+| `revision/` | Additional analyses: effect sizes, arc usage, joint parameter uncertainty, Dijkstra check, discretisation, DEM resampling, any-angle baseline; results in `revision/results/` |
 
 ## Reproducing the paper
 
 ```
-python run_energy.py --maps 50 --size 80 --out results_energy          # Table 7 and Fig. 6
-python sensitivity_energy.py --maps 20 --out results_energy_sens       # Table 11 and Fig. 8
-python run_dem.py --crops 25 --out results_dem                          # Table 9 (downloads DEM tiles)
+python run_energy.py --maps 50 --size 80 --out results_energy          # Table 8 and Fig. 6
+python sensitivity_energy.py --maps 20 --out results_energy_sens       # Table 14 and Fig. 8
+python run_dem.py --crops 25 --out results_dem                          # Table 10 (downloads DEM tiles)
 python validation/validate_morales.py                                   # Section 3.5
 python result_figures.py results_energy/energy_raw.csv results_energy_sens/sensitivity_energy.csv figs
 python model_figures.py figs
+python revision/effect_sizes.py results_energy/energy_raw.csv synthetic eff_synthetic.csv   # Table 11
+python revision/collision_audit.py . audit_synthetic.csv                # collision audit (Section 6.6)
+python revision/rev_experiments.py features --n 50       # Section 6.3
+python revision/arc_usage.py                              # Table 13
+python revision/rev_experiments.py anyangle --n 50       # Section 6.3
+python revision/dem_resample.py                           # Table 12 (needs the DEM tiles of run_dem.py)
+CONSERVATIVE=1 python revision/rev_experiments.py uncertainty --n 50   # Table 15
+python revision/rev_experiments.py optimality --n 10 --size 40          # Section 6.6
+python revision/rev_experiments.py discret --n 20                       # Table 16
 ```
 
 Random seeds are fixed in the scripts, so the runs reproduce the files in `results/`.
+
+All primitives use a conservative swept-cell collision check (`lattice.swept_cells`, 0.1-cell sampling): a path may neither enter nor touch a blocked cell. An earlier version of the code checked only sample points every 0.25 cells; its results are superseded by the files in `results/`.
 
 ## Data sources
 

@@ -1,0 +1,601 @@
+map,map_id,method,found,max_depth,penetrating,touching,energy,n_arcs
+flat,0,A*,True,-inf,False,False,8239.033063590723,0
+flat,0,TA*,True,-0.5,False,False,3712.382038054334,0
+flat,0,TA*+turn,True,-0.5,False,False,3368.575539446676,0
+flat,0,HEA* (ours),True,-0.5,False,False,3319.899535530491,2
+flat,1,A*,True,-0.5,False,False,4089.7576319046366,0
+flat,1,TA*,True,-0.5,False,False,3830.4558192186473,0
+flat,1,TA*+turn,True,-0.5,False,False,3166.3561712042747,0
+flat,1,HEA* (ours),True,-0.5,False,False,3061.946444611964,2
+flat,2,A*,True,-inf,False,False,5731.983076558399,0
+flat,2,TA*,True,-inf,False,False,3610.790415788163,0
+flat,2,TA*+turn,True,-inf,False,False,3046.913327727605,0
+flat,2,HEA* (ours),True,-inf,False,False,2966.4943690728883,1
+flat,3,A*,True,-inf,False,False,6582.074179749527,0
+flat,3,TA*,True,-inf,False,False,4953.36749463102,0
+flat,3,TA*+turn,True,-inf,False,False,3784.728810969639,0
+flat,3,HEA* (ours),True,-0.5,False,False,3623.4921272003207,2
+flat,4,A*,True,-0.5,False,False,3605.3968378271043,0
+flat,4,TA*,True,-0.5,False,False,3745.221593287715,0
+flat,4,TA*+turn,True,-0.5,False,False,2702.1012245858747,0
+flat,4,HEA* (ours),True,-0.10736724772079498,False,False,2574.945230032765,1
+flat,5,A*,True,-0.5,False,False,5629.429826149279,0
+flat,5,TA*,True,-0.5,False,False,2746.3967745109344,0
+flat,5,TA*+turn,True,-0.5,False,False,2171.543390858868,0
+flat,5,HEA* (ours),True,-0.32421641758256214,False,False,2122.3007148478614,1
+flat,6,A*,True,-0.5,False,False,6349.085635608569,0
+flat,6,TA*,True,-0.5,False,False,4064.821739645222,0
+flat,6,TA*+turn,True,-inf,False,False,3261.912914297584,0
+flat,6,HEA* (ours),True,-0.6382742569681739,False,False,3119.787473551358,2
+flat,7,A*,True,-0.5,False,False,6417.460759231237,0
+flat,7,TA*,True,-0.5,False,False,4259.627450520374,0
+flat,7,TA*+turn,True,-0.5,False,False,4124.40194928369,0
+flat,7,HEA* (ours),True,-0.5,False,False,3841.4476635790115,2
+flat,8,A*,True,-inf,False,False,6509.6052471634075,0
+flat,8,TA*,True,-inf,False,False,4948.319855771041,0
+flat,8,TA*+turn,True,-0.5,False,False,4281.884451866296,0
+flat,8,HEA* (ours),True,-0.5,False,False,4281.884451866296,0
+flat,9,A*,True,-inf,False,False,8109.674060643586,0
+flat,9,TA*,True,-0.5,False,False,4795.709934015679,0
+flat,9,TA*+turn,True,-0.5,False,False,4260.298756847824,0
+flat,9,HEA* (ours),True,-0.5,False,False,4145.473108399203,2
+flat,10,A*,True,-0.5,False,False,7683.138595452373,0
+flat,10,TA*,True,-0.5,False,False,4350.973765673221,0
+flat,10,TA*+turn,True,-0.5,False,False,3564.083229835605,0
+flat,10,HEA* (ours),True,-0.14471193569439578,False,False,3464.2083130799006,2
+flat,11,A*,True,-0.5,False,False,6972.151274234624,0
+flat,11,TA*,True,-inf,False,False,3580.8986732387516,0
+flat,11,TA*+turn,True,-0.5,False,False,3115.188018074712,0
+flat,11,HEA* (ours),True,-0.4076107807300211,False,False,2894.9406708736815,2
+flat,12,A*,True,-inf,False,False,8650.891686509474,0
+flat,12,TA*,True,-inf,False,False,4464.839809837146,0
+flat,12,TA*+turn,True,-inf,False,False,3991.1534943731563,0
+flat,12,HEA* (ours),True,-inf,False,False,3991.1534943731563,0
+flat,13,A*,True,-0.5,False,False,3719.9076035322746,0
+flat,13,TA*,True,-0.5,False,False,2992.4111902876602,0
+flat,13,TA*+turn,True,-0.5,False,False,2936.5386946209137,0
+flat,13,HEA* (ours),True,-0.37804959013218564,False,False,2906.651007434494,2
+flat,14,A*,True,-0.5,False,False,3987.5352397275074,0
+flat,14,TA*,True,-0.5,False,False,2666.937779359348,0
+flat,14,TA*+turn,True,-0.5,False,False,2331.702805358868,0
+flat,14,HEA* (ours),True,-0.5,False,False,2325.602484012084,1
+flat,15,A*,True,-0.5,False,False,7064.371458751518,0
+flat,15,TA*,True,-0.5,False,False,3840.9850344958477,0
+flat,15,TA*+turn,True,-0.5,False,False,2489.5219428589853,0
+flat,15,HEA* (ours),True,-0.18185795644070168,False,False,2451.420650670652,2
+flat,16,A*,True,-inf,False,False,6868.277110226469,0
+flat,16,TA*,True,-inf,False,False,4550.310890967972,0
+flat,16,TA*+turn,True,-inf,False,False,3321.0733168876804,0
+flat,16,HEA* (ours),True,-inf,False,False,3202.713055090544,1
+flat,17,A*,True,-0.5,False,False,6596.07422904031,0
+flat,17,TA*,True,-0.5,False,False,5046.718690606806,0
+flat,17,TA*+turn,True,-0.5,False,False,3023.8733381048505,0
+flat,17,HEA* (ours),True,-0.251316267223487,False,False,2996.980147183795,2
+flat,18,A*,True,-0.5,False,False,2964.5279536764433,0
+flat,18,TA*,True,-0.5,False,False,2628.9209438953103,0
+flat,18,TA*+turn,True,-inf,False,False,2007.7939003741978,0
+flat,18,HEA* (ours),True,-inf,False,False,2007.7939003741978,0
+flat,19,A*,True,-0.5,False,False,7630.991996522795,0
+flat,19,TA*,True,-0.5,False,False,3109.915956020952,0
+flat,19,TA*+turn,True,-0.5,False,False,3109.915956020952,0
+flat,19,HEA* (ours),True,-0.5,False,False,2945.462809673124,2
+flat,20,A*,True,-0.5,False,False,2439.3546433330794,0
+flat,20,TA*,True,-inf,False,False,2280.7148718826656,0
+flat,20,TA*+turn,True,-0.5,False,False,2021.2110486622892,0
+flat,20,HEA* (ours),True,-0.24258622217735493,False,False,1901.2947973165824,1
+flat,21,A*,True,-0.5,False,False,6991.304310671442,0
+flat,21,TA*,True,-0.5,False,False,5190.586324467103,0
+flat,21,TA*+turn,True,-0.5,False,False,4119.0105553187295,0
+flat,21,HEA* (ours),True,-0.5,False,False,4048.8510329876513,1
+flat,22,A*,True,-0.5,False,False,5818.341937401343,0
+flat,22,TA*,True,-0.5,False,False,4253.792405222555,0
+flat,22,TA*+turn,True,-1.0,False,False,3251.6742962019434,0
+flat,22,HEA* (ours),True,-0.8611370040886399,False,False,3217.303026846338,2
+flat,23,A*,True,-0.5,False,False,2931.499202243412,0
+flat,23,TA*,True,-0.5,False,False,3325.981482933287,0
+flat,23,TA*+turn,True,-0.5,False,False,2650.9035729238913,0
+flat,23,HEA* (ours),True,-0.06870545911787218,False,False,2585.0333037767564,1
+flat,24,A*,True,-0.5,False,False,5674.6827247206475,0
+flat,24,TA*,True,-inf,False,False,3645.022819155214,0
+flat,24,TA*+turn,True,-inf,False,False,2326.326433508624,0
+flat,24,HEA* (ours),True,-inf,False,False,2266.549143914603,1
+flat,25,A*,True,-0.5,False,False,3463.7177913598293,0
+flat,25,TA*,True,-0.5,False,False,3192.453905065914,0
+flat,25,TA*+turn,True,-0.5,False,False,2925.3678104215182,0
+flat,25,HEA* (ours),True,-0.28467192244931283,False,False,2743.778431773955,2
+flat,26,A*,True,-0.5,False,False,5647.072435216368,0
+flat,26,TA*,True,-inf,False,False,3767.2775725669676,0
+flat,26,TA*+turn,True,-0.5,False,False,3007.5057979737326,0
+flat,26,HEA* (ours),True,-inf,False,False,2929.6807682198037,2
+flat,27,A*,True,-0.5,False,False,4903.7030117677705,0
+flat,27,TA*,True,-0.5,False,False,5102.983718483446,0
+flat,27,TA*+turn,True,-0.5,False,False,4482.499550768847,0
+flat,27,HEA* (ours),True,-0.5,False,False,4286.60919193101,2
+flat,28,A*,True,-0.5,False,False,7175.676217139349,0
+flat,28,TA*,True,-0.5,False,False,5657.408950257741,0
+flat,28,TA*+turn,True,-0.5,False,False,4800.150345012944,0
+flat,28,HEA* (ours),True,-0.07855425980959296,False,False,4656.436812504964,2
+flat,29,A*,True,-0.5,False,False,5838.144606108581,0
+flat,29,TA*,True,-0.5,False,False,3413.010149321869,0
+flat,29,TA*+turn,True,-0.5,False,False,2778.1217921221905,0
+flat,29,HEA* (ours),True,-0.37804959013218564,False,False,2639.3727832439563,2
+flat,30,A*,True,-0.5,False,False,5082.386567789483,0
+flat,30,TA*,True,-inf,False,False,3314.405929914335,0
+flat,30,TA*+turn,True,-inf,False,False,2965.6766284078667,0
+flat,30,HEA* (ours),True,-inf,False,False,2898.0520825696913,1
+flat,31,A*,True,-0.5,False,False,7745.488498811607,0
+flat,31,TA*,True,-inf,False,False,4828.708504403062,0
+flat,31,TA*+turn,True,-0.5,False,False,3895.0275022319342,0
+flat,31,HEA* (ours),True,-0.5520678161011077,False,False,3661.079524000839,2
+flat,32,A*,True,-0.5,False,False,7049.428982219968,0
+flat,32,TA*,True,-inf,False,False,3690.850869531118,0
+flat,32,TA*+turn,True,-inf,False,False,3203.894244844236,0
+flat,32,HEA* (ours),True,-inf,False,False,3203.894244844236,0
+flat,33,A*,True,-0.5,False,False,4469.504563808156,0
+flat,33,TA*,True,-0.5,False,False,3979.890712294399,0
+flat,33,TA*+turn,True,-0.5,False,False,3293.2877618165653,0
+flat,33,HEA* (ours),True,-0.12271440689509916,False,False,3165.3682534459494,3
+flat,34,A*,True,-0.5,False,False,4375.29499081401,0
+flat,34,TA*,True,-0.5,False,False,4027.19606239142,0
+flat,34,TA*+turn,True,-0.5,False,False,3098.730220770446,0
+flat,34,HEA* (ours),True,-0.24258622217735848,False,False,3004.4349085289896,2
+flat,35,A*,True,-0.5,False,False,6558.269245684274,0
+flat,35,TA*,True,-inf,False,False,2812.63833357043,0
+flat,35,TA*+turn,True,-inf,False,False,2579.7854037489396,0
+flat,35,HEA* (ours),True,-0.5,False,False,2576.0450075858266,1
+flat,36,A*,True,-0.5,False,False,2733.202473825646,0
+flat,36,TA*,True,-0.5,False,False,2436.280233142041,0
+flat,36,TA*+turn,True,-0.5,False,False,2434.3077461926755,0
+flat,36,HEA* (ours),True,-0.5,False,False,2434.3077461926755,0
+flat,37,A*,True,-0.5,False,False,4666.869766705189,0
+flat,37,TA*,True,-0.5,False,False,4401.408151107498,0
+flat,37,TA*+turn,True,-0.5,False,False,3454.919970911448,0
+flat,37,HEA* (ours),True,-0.5,False,False,3360.0234580012493,2
+flat,38,A*,True,-0.5,False,False,4941.828523076975,0
+flat,38,TA*,True,-0.5,False,False,4838.878609324429,0
+flat,38,TA*+turn,True,-0.5,False,False,4655.854817575137,0
+flat,38,HEA* (ours),True,-0.5,False,False,4622.9874863904215,1
+flat,39,A*,True,-0.5,False,False,6917.30955436114,0
+flat,39,TA*,True,-0.5,False,False,4826.189646107082,0
+flat,39,TA*+turn,True,-0.5,False,False,4243.676704898747,0
+flat,39,HEA* (ours),True,-0.4814384357287338,False,False,4083.6130093044894,2
+flat,40,A*,True,-0.5,False,False,6903.064800447864,0
+flat,40,TA*,True,-0.5,False,False,4119.078557171794,0
+flat,40,TA*+turn,True,-0.5,False,False,3332.8353344042503,0
+flat,40,HEA* (ours),True,-0.5,False,False,3233.546070509463,1
+flat,41,A*,True,-inf,False,False,3765.5881410108504,0
+flat,41,TA*,True,-0.5,False,False,4601.475407227706,0
+flat,41,TA*+turn,True,-0.5,False,False,3146.5879715933193,0
+flat,41,HEA* (ours),True,-inf,False,False,3104.4322168345625,1
+flat,42,A*,True,-0.5,False,False,7760.48882535509,0
+flat,42,TA*,True,-inf,False,False,4302.538050178421,0
+flat,42,TA*+turn,True,-0.5,False,False,3594.691449082518,0
+flat,42,HEA* (ours),True,-0.893242224147599,False,False,3416.4438896066163,1
+flat,43,A*,True,-0.5,False,False,3148.299664014376,0
+flat,43,TA*,True,-0.5,False,False,2965.928336370948,0
+flat,43,TA*+turn,True,-0.5,False,False,2702.3748252361065,0
+flat,43,HEA* (ours),True,-0.5,False,False,2697.337927806364,1
+flat,44,A*,True,-0.5,False,False,7923.478993669746,0
+flat,44,TA*,True,-0.5,False,False,6615.403897547311,0
+flat,44,TA*+turn,True,-0.5,False,False,5503.074320706123,0
+flat,44,HEA* (ours),True,-0.07855425980958941,False,False,5325.27700473274,4
+flat,45,A*,True,-0.5,False,False,7365.251343138823,0
+flat,45,TA*,True,-0.5,False,False,5118.830793815523,0
+flat,45,TA*+turn,True,-inf,False,False,4669.018479616021,0
+flat,45,HEA* (ours),True,-inf,False,False,4546.230744255725,2
+flat,46,A*,True,-0.5,False,False,7277.11350532127,0
+flat,46,TA*,True,-0.5,False,False,3992.6040084673086,0
+flat,46,TA*+turn,True,-0.5,False,False,3666.508129601365,0
+flat,46,HEA* (ours),True,-0.5,False,False,3643.0261918971073,1
+flat,47,A*,True,-0.5,False,False,6332.386566159621,0
+flat,47,TA*,True,-0.5,False,False,4412.975369334559,0
+flat,47,TA*+turn,True,-0.5,False,False,3792.3118541454032,0
+flat,47,HEA* (ours),True,-0.5,False,False,3773.1846088116563,1
+flat,48,A*,True,-0.5,False,False,6025.247968225506,0
+flat,48,TA*,True,-0.5,False,False,4809.010415172598,0
+flat,48,TA*+turn,True,-0.5,False,False,3683.948911859875,0
+flat,48,HEA* (ours),True,-0.5,False,False,3644.0160302570494,1
+flat,49,A*,True,-0.5,False,False,7688.833437597671,0
+flat,49,TA*,True,-0.5,False,False,4452.242990951524,0
+flat,49,TA*+turn,True,-0.5,False,False,3382.902097194536,0
+flat,49,HEA* (ours),True,-0.5,False,False,3290.8643739105332,1
+hills,0,A*,True,-0.5,False,False,5778.460238617353,0
+hills,0,TA*,True,-0.5,False,False,4277.52838320759,0
+hills,0,TA*+turn,True,-0.5,False,False,3867.0439248308453,0
+hills,0,HEA* (ours),True,-0.37567890325208,False,False,3705.522832050137,3
+hills,1,A*,True,-inf,False,False,10477.200006641744,0
+hills,1,TA*,True,-0.5,False,False,5894.433638421677,0
+hills,1,TA*+turn,True,-0.5,False,False,5664.698493240826,0
+hills,1,HEA* (ours),True,-0.5,False,False,5490.805223827703,5
+hills,2,A*,True,-0.5,False,False,5603.691401603177,0
+hills,2,TA*,True,-0.5,False,False,3722.8326141788643,0
+hills,2,TA*+turn,True,-0.5,False,False,3612.7454295234243,0
+hills,2,HEA* (ours),True,-0.9603053114324354,False,False,3575.4257675114927,2
+hills,3,A*,True,-0.5,False,False,7682.896201947558,0
+hills,3,TA*,True,-0.5,False,False,6867.8600593677165,0
+hills,3,TA*+turn,True,-0.5,False,False,6642.817507613164,0
+hills,3,HEA* (ours),True,-0.5,False,False,6598.7691736124025,2
+hills,4,A*,True,-0.5,False,False,3000.730663346673,0
+hills,4,TA*,True,-0.5,False,False,2683.488658522055,0
+hills,4,TA*+turn,True,-0.5,False,False,2180.8780577476396,0
+hills,4,HEA* (ours),True,-0.14471193569439933,False,False,2123.195572409846,3
+hills,5,A*,True,-0.5,False,False,3473.699848681224,0
+hills,5,TA*,True,-0.5,False,False,3661.8835494685577,0
+hills,5,TA*+turn,True,-0.5,False,False,3301.022966482209,0
+hills,5,HEA* (ours),True,-0.06228651477265146,False,False,3143.729995182666,2
+hills,6,A*,True,-0.5,False,False,10671.327263726747,0
+hills,6,TA*,True,-0.5,False,False,7719.53436195076,0
+hills,6,TA*+turn,True,-0.5,False,False,6559.29952570696,0
+hills,6,HEA* (ours),True,-0.5,False,False,6404.8013713306345,1
+hills,7,A*,True,-0.5,False,False,6477.473163831593,0
+hills,7,TA*,True,-0.5,False,False,3306.3910885393325,0
+hills,7,TA*+turn,True,-0.5,False,False,3142.462384587469,0
+hills,7,HEA* (ours),True,-0.5,False,False,3082.3846948244313,1
+hills,8,A*,True,-0.5,False,False,6234.954601335301,0
+hills,8,TA*,True,-0.5,False,False,4050.0648166988,0
+hills,8,TA*+turn,True,-0.5,False,False,3115.1331886043417,0
+hills,8,HEA* (ours),True,-0.24234874352565328,False,False,3016.427570689171,4
+hills,9,A*,True,-0.5,False,False,5504.663968562184,0
+hills,9,TA*,True,-0.5,False,False,4593.177066916744,0
+hills,9,TA*+turn,True,-0.5,False,False,3761.111346029647,0
+hills,9,HEA* (ours),True,-0.5,False,False,3708.3782464194774,1
+hills,10,A*,True,-inf,False,False,9546.648388338523,0
+hills,10,TA*,True,-0.5,False,False,6638.333553200132,0
+hills,10,TA*+turn,True,-0.5,False,False,6224.464043465043,0
+hills,10,HEA* (ours),True,-0.5,False,False,6012.916497577925,3
+hills,11,A*,True,-0.5,False,False,6825.518196714143,0
+hills,11,TA*,True,-0.5,False,False,6260.983487353678,0
+hills,11,TA*+turn,True,-0.5,False,False,5825.18892191237,0
+hills,11,HEA* (ours),True,-0.14471193569439578,False,False,5652.567002163884,3
+hills,12,A*,True,-0.5,False,False,9658.047901919712,0
+hills,12,TA*,True,-0.5,False,False,6694.258589181483,0
+hills,12,TA*+turn,True,-0.5,False,False,5937.27546031521,0
+hills,12,HEA* (ours),True,-inf,False,False,5668.202677646552,3
+hills,13,A*,True,-0.5,False,False,7852.990359249921,0
+hills,13,TA*,True,-0.5,False,False,4447.5917206891845,0
+hills,13,TA*+turn,True,-0.5,False,False,4126.438083986232,0
+hills,13,HEA* (ours),True,-0.5,False,False,4120.454504722622,1
+hills,14,A*,True,-0.5,False,False,8702.901009941668,0
+hills,14,TA*,True,-0.5,False,False,5816.237497933344,0
+hills,14,TA*+turn,True,-0.5,False,False,5261.218607446617,0
+hills,14,HEA* (ours),True,-0.3782859373086467,False,False,5061.726739723516,3
+hills,15,A*,True,-0.5,False,False,5081.586158765937,0
+hills,15,TA*,True,-0.5,False,False,1761.9701584218576,0
+hills,15,TA*+turn,True,-0.5,False,False,1590.4426317519515,0
+hills,15,HEA* (ours),True,-0.18782906680586997,False,False,1512.1177929913274,3
+hills,16,A*,True,-0.5,False,False,8692.785701864956,0
+hills,16,TA*,True,-0.5,False,False,8067.057540558552,0
+hills,16,TA*+turn,True,-0.5,False,False,7810.195438589421,0
+hills,16,HEA* (ours),True,-0.46171785568844825,False,False,7575.606551117578,3
+hills,17,A*,True,-0.5,False,False,5412.81477006399,0
+hills,17,TA*,True,-0.5,False,False,4494.142338013892,0
+hills,17,TA*+turn,True,-0.5,False,False,3709.38393124814,0
+hills,17,HEA* (ours),True,-0.5,False,False,3601.4483663150945,1
+hills,18,A*,True,-0.5,False,False,7273.252794485921,0
+hills,18,TA*,True,-0.5,False,False,6818.131870924271,0
+hills,18,TA*+turn,True,-0.5,False,False,5839.787123383246,0
+hills,18,HEA* (ours),True,-0.5260339080505574,False,False,5646.686049960995,3
+hills,19,A*,True,-0.5,False,False,5219.1430388190765,0
+hills,19,TA*,True,-0.5,False,False,3447.416485420346,0
+hills,19,TA*+turn,True,-0.5,False,False,3333.3692295717283,0
+hills,19,HEA* (ours),True,-inf,False,False,3272.407793876068,2
+hills,20,A*,True,-0.5,False,False,5024.481522206616,0
+hills,20,TA*,True,-0.5,False,False,4144.704172578894,0
+hills,20,TA*+turn,True,-0.5,False,False,3415.77902757804,0
+hills,20,HEA* (ours),True,-0.3409289782203544,False,False,3234.455237504987,2
+hills,21,A*,True,-0.5,False,False,6147.040954705693,0
+hills,21,TA*,True,-0.5,False,False,5153.5518368720905,0
+hills,21,TA*+turn,True,-0.5,False,False,4366.283352700831,0
+hills,21,HEA* (ours),True,-0.3780495901321892,False,False,4126.887217299357,3
+hills,22,A*,True,-0.5,False,False,5019.723844366431,0
+hills,22,TA*,True,-0.5,False,False,4578.5766362703835,0
+hills,22,TA*+turn,True,-0.5,False,False,4037.997385752475,0
+hills,22,HEA* (ours),True,-0.5,False,False,3975.583209862198,3
+hills,23,A*,True,-0.5,False,False,6057.195625028739,0
+hills,23,TA*,True,-0.5,False,False,3585.805681529867,0
+hills,23,TA*+turn,True,-0.5,False,False,3367.8256517818727,0
+hills,23,HEA* (ours),True,-0.5,False,False,3275.4150226023457,3
+hills,24,A*,True,-0.5,False,False,4040.4971478964435,0
+hills,24,TA*,True,-0.5,False,False,2831.4225883108475,0
+hills,24,TA*+turn,True,-0.5,False,False,2441.6788628695062,0
+hills,24,HEA* (ours),True,-0.5,False,False,2278.6019503603106,2
+hills,25,A*,True,-0.5,False,False,8390.768942385976,0
+hills,25,TA*,True,-0.5,False,False,5967.55529360334,0
+hills,25,TA*+turn,True,-0.5,False,False,5350.609721251729,0
+hills,25,HEA* (ours),True,-0.06228651477265146,False,False,5128.656428762839,3
+hills,26,A*,True,-0.5,False,False,3470.2235830332866,0
+hills,26,TA*,True,-0.5,False,False,1492.5855781323166,0
+hills,26,TA*+turn,True,-inf,False,False,1034.0698988130282,0
+hills,26,HEA* (ours),True,-inf,False,False,958.647027094094,2
+hills,27,A*,True,-0.5,False,False,5581.390845843346,0
+hills,27,TA*,True,-0.5,False,False,4563.8845428979175,0
+hills,27,TA*+turn,True,-0.5,False,False,4252.944930429372,0
+hills,27,HEA* (ours),True,-0.5,False,False,4102.026458387496,4
+hills,28,A*,True,-0.5,False,False,6475.674210544596,0
+hills,28,TA*,True,-0.5,False,False,6670.072384725424,0
+hills,28,TA*+turn,True,-0.5,False,False,6121.9096214667015,0
+hills,28,HEA* (ours),True,-0.06228651477265146,False,False,5966.268176018191,4
+hills,29,A*,True,-inf,False,False,4742.799816818429,0
+hills,29,TA*,True,-0.5,False,False,5162.71228977124,0
+hills,29,TA*+turn,True,-inf,False,False,4366.579440831793,0
+hills,29,HEA* (ours),True,-0.3409289782203473,False,False,4187.330277067677,3
+hills,30,A*,True,-0.5,False,False,5292.617556417916,0
+hills,30,TA*,True,-0.5,False,False,3145.356617575097,0
+hills,30,TA*+turn,True,-0.5,False,False,2815.7575440896903,0
+hills,30,HEA* (ours),True,-0.5,False,False,2614.062744315151,2
+hills,31,A*,True,-0.5,False,False,3388.4886595805838,0
+hills,31,TA*,True,-0.5,False,False,4100.472024185343,0
+hills,31,TA*+turn,True,-inf,False,False,3184.021791106408,0
+hills,31,HEA* (ours),True,-inf,False,False,3110.867683624786,1
+hills,32,A*,True,-0.5,False,False,7377.954187329012,0
+hills,32,TA*,True,-0.5,False,False,6369.958811040402,0
+hills,32,TA*+turn,True,-0.5,False,False,5271.949102361494,0
+hills,32,HEA* (ours),True,-0.5,False,False,5164.760174302984,1
+hills,33,A*,True,-inf,False,False,4385.822311592752,0
+hills,33,TA*,True,-0.5,False,False,4423.536691258376,0
+hills,33,TA*+turn,True,-inf,False,False,3990.8130166772944,0
+hills,33,HEA* (ours),True,-0.5,False,False,3951.428897600121,1
+hills,34,A*,True,-0.5,False,False,9775.821794289866,0
+hills,34,TA*,True,-0.5,False,False,6205.700635284667,0
+hills,34,TA*+turn,True,-0.5,False,False,5921.186859972368,0
+hills,34,HEA* (ours),True,-0.5,False,False,5712.766437309031,3
+hills,35,A*,True,-0.5,False,False,10388.509962152375,0
+hills,35,TA*,True,-0.5,False,False,9445.654343385939,0
+hills,35,TA*+turn,True,-0.5,False,False,8890.812636942524,0
+hills,35,HEA* (ours),True,-0.06228651477265146,False,False,8550.29421524306,5
+hills,36,A*,True,-0.5,False,False,3897.302412338532,0
+hills,36,TA*,True,-0.5,False,False,3053.2264403042564,0
+hills,36,TA*+turn,True,-0.5,False,False,3053.2264403042564,0
+hills,36,HEA* (ours),True,-0.6245730295452994,False,False,2820.2027182106026,2
+hills,37,A*,True,-0.5,False,False,4367.539277703507,0
+hills,37,TA*,True,-0.5,False,False,3225.4243896261173,0
+hills,37,TA*+turn,True,-0.5,False,False,2604.301250090458,0
+hills,37,HEA* (ours),True,-0.5,False,False,2538.687457998674,2
+hills,38,A*,True,-0.5,False,False,9459.895730435244,0
+hills,38,TA*,True,-0.5,False,False,7807.186356044762,0
+hills,38,TA*+turn,True,-0.5,False,False,7369.139107297003,0
+hills,38,HEA* (ours),True,-0.4234357113768965,False,False,7205.852984213962,5
+hills,39,A*,True,-0.5,False,False,6564.041358875229,0
+hills,39,TA*,True,-0.5,False,False,6103.0677146993585,0
+hills,39,TA*+turn,True,-0.5,False,False,5340.581621858457,0
+hills,39,HEA* (ours),True,-0.14471193569439933,False,False,5165.26985654938,3
+hills,40,A*,True,-0.5,False,False,10307.062805227832,0
+hills,40,TA*,True,-0.5,False,False,6054.944082385539,0
+hills,40,TA*+turn,True,-0.5,False,False,5364.449647572892,0
+hills,40,HEA* (ours),True,-0.14471193569439578,False,False,5116.621127464713,4
+hills,41,A*,True,-0.5,False,False,8322.395947917312,0
+hills,41,TA*,True,-0.5,False,False,5838.3096250017825,0
+hills,41,TA*+turn,True,-0.5,False,False,5321.754904822451,0
+hills,41,HEA* (ours),True,-0.14471193569439578,False,False,5177.116347125103,3
+hills,42,A*,True,-0.5,False,False,10772.796221715978,0
+hills,42,TA*,True,-0.5,False,False,7005.137882284581,0
+hills,42,TA*+turn,True,-0.5,False,False,5889.145191699053,0
+hills,42,HEA* (ours),True,-0.5,False,False,5845.9476563615735,1
+hills,43,A*,True,-inf,False,False,3105.537778108646,0
+hills,43,TA*,True,-inf,False,False,2724.128001547668,0
+hills,43,TA*+turn,True,-inf,False,False,2444.3128426243516,0
+hills,43,HEA* (ours),True,-inf,False,False,2387.240570652023,3
+hills,44,A*,True,-0.5,False,False,8174.2301015225585,0
+hills,44,TA*,True,-0.5,False,False,6578.466078697454,0
+hills,44,TA*+turn,True,-0.5,False,False,5436.993746715943,0
+hills,44,HEA* (ours),True,-0.5,False,False,5286.129562894388,2
+hills,45,A*,True,-0.5,False,False,7277.990973507678,0
+hills,45,TA*,True,-0.5,False,False,4383.66428022101,0
+hills,45,TA*+turn,True,-0.5,False,False,4225.768841733014,0
+hills,45,HEA* (ours),True,-0.1397679433394785,False,False,4138.092219127682,2
+hills,46,A*,True,-0.5,False,False,6478.237631723102,0
+hills,46,TA*,True,-0.5,False,False,5852.695176322456,0
+hills,46,TA*+turn,True,-0.5,False,False,5299.277012808186,0
+hills,46,HEA* (ours),True,-0.5,False,False,5137.2401926630455,3
+hills,47,A*,True,-0.5,False,False,2725.562010798733,0
+hills,47,TA*,True,-0.5,False,False,2510.083740093872,0
+hills,47,TA*+turn,True,-0.5,False,False,2037.5578848894893,0
+hills,47,HEA* (ours),True,-0.5,False,False,1883.587658051883,2
+hills,48,A*,True,-0.5,False,False,6443.008240766759,0
+hills,48,TA*,True,-0.5,False,False,3231.9584945459956,0
+hills,48,TA*+turn,True,-0.5,False,False,3089.6484708274156,0
+hills,48,HEA* (ours),True,-0.4745111459983917,False,False,3034.2940549387354,1
+hills,49,A*,True,-0.5,False,False,6685.322019268186,0
+hills,49,TA*,True,-0.5,False,False,5028.269961712281,0
+hills,49,TA*+turn,True,-0.5,False,False,4552.685880082075,0
+hills,49,HEA* (ours),True,-0.2282440034040114,False,False,4335.006820661739,3
+rocky,0,A*,True,-0.5,False,False,5633.938315558042,0
+rocky,0,TA*,True,-0.5,False,False,4671.134164020532,0
+rocky,0,TA*+turn,True,-0.5,False,False,3955.828095758957,0
+rocky,0,HEA* (ours),True,-0.5,False,False,3876.1013924158638,2
+rocky,1,A*,True,-0.5,False,False,5118.192324226007,0
+rocky,1,TA*,True,-0.5,False,False,5425.3790916031,0
+rocky,1,TA*+turn,True,-0.5,False,False,4330.899838734345,0
+rocky,1,HEA* (ours),True,-0.3782859373086467,False,False,4253.863935180225,3
+rocky,2,A*,True,-0.5,False,False,6159.251604138058,0
+rocky,2,TA*,True,-0.5,False,False,5188.27826888274,0
+rocky,2,TA*+turn,True,-0.5,False,False,4935.163251126107,0
+rocky,2,HEA* (ours),True,-0.5,False,False,4762.451306982919,1
+rocky,3,A*,True,-0.5,False,False,4499.331633235815,0
+rocky,3,TA*,True,-0.5,False,False,3814.061969006935,0
+rocky,3,TA*+turn,True,-0.5,False,False,3128.603543533844,0
+rocky,3,HEA* (ours),True,-0.12271440689509916,False,False,3115.5371784911476,1
+rocky,4,A*,True,-0.5,False,False,5159.407706237107,0
+rocky,4,TA*,True,-0.5,False,False,4106.364092992649,0
+rocky,4,TA*+turn,True,-0.5,False,False,3468.217532884608,0
+rocky,4,HEA* (ours),True,-0.22824400340401496,False,False,3303.8687025908093,3
+rocky,5,A*,True,-0.5,False,False,9245.304886674076,0
+rocky,5,TA*,True,-0.5,False,False,7907.763503716931,0
+rocky,5,TA*+turn,True,-0.5,False,False,7077.183271810749,0
+rocky,5,HEA* (ours),True,-0.251316267223487,False,False,6919.824921256612,2
+rocky,6,A*,True,-0.5,False,False,8449.03349139579,0
+rocky,6,TA*,True,-0.5,False,False,6182.863709151331,0
+rocky,6,TA*+turn,True,-0.5,False,False,5475.653691492766,0
+rocky,6,HEA* (ours),True,-0.18185795644070168,False,False,5278.069763415137,3
+rocky,7,A*,True,-0.5,False,False,11199.893092900435,0
+rocky,7,TA*,True,-0.5,False,False,8520.455187563257,0
+rocky,7,TA*+turn,True,-0.5,False,False,7264.9903950789285,0
+rocky,7,HEA* (ours),True,-0.07855425980958941,False,False,6933.705332229793,3
+rocky,8,A*,True,-0.5,False,False,5911.732629368031,0
+rocky,8,TA*,True,-0.5,False,False,4692.840547826451,0
+rocky,8,TA*+turn,True,-0.5,False,False,3941.0311399202933,0
+rocky,8,HEA* (ours),True,-0.9925609460967806,False,False,3883.766554371809,1
+rocky,9,A*,True,-0.5,False,False,4307.348466157783,0
+rocky,9,TA*,True,-0.5,False,False,3444.666136851593,0
+rocky,9,TA*+turn,True,-0.5,False,False,2715.2889437964614,0
+rocky,9,HEA* (ours),True,-0.5,False,False,2711.349958179655,1
+rocky,10,A*,True,-0.5,False,False,2949.2718486752747,0
+rocky,10,TA*,True,-0.5,False,False,2046.1302924165793,0
+rocky,10,TA*+turn,True,-0.5,False,False,1641.2676417973844,0
+rocky,10,HEA* (ours),True,-0.07855425980959296,False,False,1434.9383449515212,3
+rocky,11,A*,True,-0.5,False,False,4795.193406035614,0
+rocky,11,TA*,True,-0.5,False,False,2764.506218755709,0
+rocky,11,TA*+turn,True,-0.5,False,False,2314.412942036179,0
+rocky,11,HEA* (ours),True,-0.06870545911787218,False,False,2180.4694873354606,2
+rocky,12,A*,True,-0.5,False,False,3891.2468088808887,0
+rocky,12,TA*,True,-0.5,False,False,4071.0209484095926,0
+rocky,12,TA*+turn,True,-0.5,False,False,3338.822585080171,0
+rocky,12,HEA* (ours),True,-0.5,False,False,3305.560949485364,1
+rocky,13,A*,True,-0.5,False,False,6675.098045592814,0
+rocky,13,TA*,True,-0.5,False,False,4367.150079119372,0
+rocky,13,TA*+turn,True,-0.5,False,False,3628.9001133416027,0
+rocky,13,HEA* (ours),True,-0.5,False,False,3618.6137004933084,2
+rocky,14,A*,True,-0.5,False,False,5016.865024443969,0
+rocky,14,TA*,True,-0.5,False,False,3759.973001744046,0
+rocky,14,TA*+turn,True,-0.5,False,False,3023.7008071230593,0
+rocky,14,HEA* (ours),True,-0.5,False,False,2863.1120985177085,2
+rocky,15,A*,True,-0.5,False,False,4994.241539480983,0
+rocky,15,TA*,True,-0.5,False,False,4870.4973724982265,0
+rocky,15,TA*+turn,True,-0.5,False,False,4321.311922952002,0
+rocky,15,HEA* (ours),True,-0.06228651477265146,False,False,4290.5758754275175,1
+rocky,16,A*,True,-0.5,False,False,3900.240593456456,0
+rocky,16,TA*,True,-0.5,False,False,2883.267338768994,0
+rocky,16,TA*+turn,True,-0.5,False,False,2542.6011044603038,0
+rocky,16,HEA* (ours),True,-0.18185795644070168,False,False,2486.922299845941,1
+rocky,17,A*,True,-0.5,False,False,4670.382625217215,0
+rocky,17,TA*,True,-0.5,False,False,5124.008081241819,0
+rocky,17,TA*+turn,True,-0.5,False,False,4421.150871118925,0
+rocky,17,HEA* (ours),True,-0.06870545911787218,False,False,4308.043795119516,1
+rocky,18,A*,True,-0.5,False,False,6416.521129405904,0
+rocky,18,TA*,True,-0.5,False,False,4688.161574930644,0
+rocky,18,TA*+turn,True,-0.5,False,False,4298.341885492059,0
+rocky,18,HEA* (ours),True,-0.4673049412862511,False,False,4176.622585070745,3
+rocky,19,A*,True,-0.5,False,False,4574.98394838859,0
+rocky,19,TA*,True,-0.5,False,False,3999.108476318855,0
+rocky,19,TA*+turn,True,-1.0,False,False,2586.6946410773303,0
+rocky,19,HEA* (ours),True,-1.0,False,False,2578.81046633185,1
+rocky,20,A*,True,-0.5,False,False,7113.9590733913765,0
+rocky,20,TA*,True,-0.5,False,False,3598.262055711263,0
+rocky,20,TA*+turn,True,-0.5,False,False,3336.2314857307715,0
+rocky,20,HEA* (ours),True,-0.1878290668058682,False,False,3204.539679503943,2
+rocky,21,A*,True,-0.5,False,False,3676.1687261006114,0
+rocky,21,TA*,True,-0.5,False,False,3471.55422143925,0
+rocky,21,TA*+turn,True,-0.5,False,False,3220.7612842994567,0
+rocky,21,HEA* (ours),True,-0.06228651477265146,False,False,3006.1261988037113,4
+rocky,22,A*,True,-0.5,False,False,7791.848243311158,0
+rocky,22,TA*,True,-0.5,False,False,7324.2605045238415,0
+rocky,22,TA*+turn,True,-0.5,False,False,6786.026500982069,0
+rocky,22,HEA* (ours),True,-0.24234874352565328,False,False,6572.209909881435,4
+rocky,23,A*,True,-0.5,False,False,6267.389732815768,0
+rocky,23,TA*,True,-0.5,False,False,6307.9624029833185,0
+rocky,23,TA*+turn,True,-0.5,False,False,5559.571215680412,0
+rocky,23,HEA* (ours),True,-0.044158582980031724,False,False,5043.967905392797,5
+rocky,24,A*,True,-0.5,False,False,6945.4094341858045,0
+rocky,24,TA*,True,-inf,False,False,4966.927015782714,0
+rocky,24,TA*+turn,True,-0.5,False,False,4578.538678677523,0
+rocky,24,HEA* (ours),True,-0.5,False,False,4563.049307571479,1
+rocky,25,A*,True,-0.5,False,False,6800.610129717921,0
+rocky,25,TA*,True,-0.5,False,False,4748.651161060976,0
+rocky,25,TA*+turn,True,-0.5,False,False,4513.804801149156,0
+rocky,25,HEA* (ours),True,-0.14471193569439844,False,False,4486.193042593407,2
+rocky,26,A*,True,-0.5,False,False,5607.7429023201985,0
+rocky,26,TA*,True,-0.5,False,False,5423.125123301869,0
+rocky,26,TA*+turn,True,-0.5,False,False,4947.030532510755,0
+rocky,26,HEA* (ours),True,-0.1397679433394785,False,False,4759.960358661313,4
+rocky,27,A*,True,-0.5,False,False,5852.536758121517,0
+rocky,27,TA*,True,-0.5,False,False,3776.917567254802,0
+rocky,27,TA*+turn,True,-0.5,False,False,3538.9510276390706,0
+rocky,27,HEA* (ours),True,-0.4234357113768965,False,False,3478.7341558380604,2
+rocky,28,A*,True,-0.5,False,False,7642.4535085668485,0
+rocky,28,TA*,True,-0.5,False,False,6387.318386062437,0
+rocky,28,TA*+turn,True,-0.5,False,False,5492.272548796056,0
+rocky,28,HEA* (ours),True,-0.06228651477265146,False,False,5198.40812646778,5
+rocky,29,A*,True,-0.5,False,False,3883.261331304785,0
+rocky,29,TA*,True,-0.5,False,False,2918.1266283590944,0
+rocky,29,TA*+turn,True,-0.5,False,False,2144.7077977506133,0
+rocky,29,HEA* (ours),True,-0.12576195400021817,False,False,2109.6263001611674,1
+rocky,30,A*,True,-0.5,False,False,5916.497440280671,0
+rocky,30,TA*,True,-0.5,False,False,5230.856556277833,0
+rocky,30,TA*+turn,True,-0.5,False,False,4698.962255437128,0
+rocky,30,HEA* (ours),True,-0.34092897822035084,False,False,4458.658576477244,3
+rocky,31,A*,True,-0.5,False,False,5057.258233672362,0
+rocky,31,TA*,True,-0.5,False,False,5059.599302522013,0
+rocky,31,TA*+turn,True,-0.5,False,False,4251.547619821634,0
+rocky,31,HEA* (ours),True,-0.10736724772079498,False,False,4108.902168430702,2
+rocky,32,A*,True,-0.5,False,False,4724.688353774067,0
+rocky,32,TA*,True,-0.5,False,False,3571.196338301646,0
+rocky,32,TA*+turn,True,-0.5,False,False,2740.4311789709427,0
+rocky,32,HEA* (ours),True,-0.5,False,False,2740.4311789709427,0
+rocky,33,A*,True,-0.5,False,False,3288.0265466010574,0
+rocky,33,TA*,True,-0.5,False,False,3603.370221723084,0
+rocky,33,TA*+turn,True,-0.5,False,False,2987.5906242965384,0
+rocky,33,HEA* (ours),True,-0.18782906680586997,False,False,2818.3697328365415,3
+rocky,34,A*,True,-0.5,False,False,5049.7016116542945,0
+rocky,34,TA*,True,-0.5,False,False,5692.559468855979,0
+rocky,34,TA*+turn,True,-0.5,False,False,4690.401584688801,0
+rocky,34,HEA* (ours),True,-0.22824400340401496,False,False,4514.758501558322,1
+rocky,35,A*,True,-0.5,False,False,3049.03475386667,0
+rocky,35,TA*,True,-0.5,False,False,3366.458296513252,0
+rocky,35,TA*+turn,True,-0.5,False,False,2653.536384606217,0
+rocky,35,HEA* (ours),True,-0.12576195400021817,False,False,2562.5179035808987,2
+rocky,36,A*,True,-0.5,False,False,7498.748233999809,0
+rocky,36,TA*,True,-0.5,False,False,4986.327208576784,0
+rocky,36,TA*+turn,True,-0.5,False,False,4442.70129206019,0
+rocky,36,HEA* (ours),True,-0.5,False,False,4267.154001136173,4
+rocky,37,A*,True,-0.5,False,False,9256.102897927387,0
+rocky,37,TA*,True,-0.5,False,False,5859.288236964459,0
+rocky,37,TA*+turn,True,-0.5,False,False,5674.281696420986,0
+rocky,37,HEA* (ours),True,-0.3782859373086467,False,False,5406.182234947079,3
+rocky,38,A*,True,-0.5,False,False,10046.698349025875,0
+rocky,38,TA*,True,-0.5,False,False,8656.906675882332,0
+rocky,38,TA*+turn,True,-0.5,False,False,7812.96031476577,0
+rocky,38,HEA* (ours),True,-0.08841205643640393,False,False,7625.613436069907,3
+rocky,39,A*,True,-0.5,False,False,5281.330736634382,0
+rocky,39,TA*,True,-0.5,False,False,4857.930280110161,0
+rocky,39,TA*+turn,True,-0.5,False,False,4013.8376558641708,0
+rocky,39,HEA* (ours),True,-0.5,False,False,3939.4236300074317,2
+rocky,40,A*,True,-0.5,False,False,9913.764807008913,0
+rocky,40,TA*,True,-0.5,False,False,6672.361231553605,0
+rocky,40,TA*+turn,True,-0.5,False,False,5413.529414803215,0
+rocky,40,HEA* (ours),True,-0.1818579564407088,False,False,5157.532865288924,2
+rocky,41,A*,True,-0.5,False,False,6698.0122870339155,0
+rocky,41,TA*,True,-0.5,False,False,5622.361884272014,0
+rocky,41,TA*+turn,True,-0.5,False,False,4917.399373244982,0
+rocky,41,HEA* (ours),True,-0.36289708449433533,False,False,4838.752556643544,1
+rocky,42,A*,True,-0.5,False,False,3650.9312268186204,0
+rocky,42,TA*,True,-0.5,False,False,3045.5725458058932,0
+rocky,42,TA*+turn,True,-0.5,False,False,2739.2339491713133,0
+rocky,42,HEA* (ours),True,-0.10736724772079498,False,False,2677.9823983193514,1
+rocky,43,A*,True,-0.5,False,False,11059.974119024839,0
+rocky,43,TA*,True,-0.5,False,False,8812.018203346974,0
+rocky,43,TA*+turn,True,-0.5,False,False,7209.7571841847175,0
+rocky,43,HEA* (ours),True,-0.06228651477265146,False,False,6982.907821613417,4
+rocky,44,A*,True,-0.5,False,False,5693.72230226099,0
+rocky,44,TA*,True,-0.5,False,False,3983.2290341112043,0
+rocky,44,TA*+turn,True,-0.5,False,False,3275.9790081852125,0
+rocky,44,HEA* (ours),True,-0.07855425980959296,False,False,3179.29331666597,3
+rocky,45,A*,True,-0.5,False,False,6515.25582369939,0
+rocky,45,TA*,True,-0.5,False,False,5812.429714049409,0
+rocky,45,TA*+turn,True,-0.5,False,False,5218.334446445805,0
+rocky,45,HEA* (ours),True,-0.5,False,False,5081.184564409674,4
+rocky,46,A*,True,-0.5,False,False,7821.718837809179,0
+rocky,46,TA*,True,-0.5,False,False,4843.110689693011,0
+rocky,46,TA*+turn,True,-0.5,False,False,4301.7512831127515,0
+rocky,46,HEA* (ours),True,-0.14471193569439578,False,False,4240.30900271665,3
+rocky,47,A*,True,-0.5,False,False,8513.004344346857,0
+rocky,47,TA*,True,-0.5,False,False,8143.1473243306,0
+rocky,47,TA*+turn,True,-0.5,False,False,6991.542504869859,0
+rocky,47,HEA* (ours),True,-0.48143843572873557,False,False,6786.585968441671,2
+rocky,48,A*,True,-0.5,False,False,4629.167124187396,0
+rocky,48,TA*,True,-0.5,False,False,3735.9612046922125,0
+rocky,48,TA*+turn,True,-0.5,False,False,3473.5255346620693,0
+rocky,48,HEA* (ours),True,-0.12576195400021817,False,False,3387.4644286169146,3
+rocky,49,A*,True,-0.5,False,False,4814.263264651473,0
+rocky,49,TA*,True,-0.5,False,False,4852.969146193606,0
+rocky,49,TA*+turn,True,-0.5,False,False,3800.956124758229,0
+rocky,49,HEA* (ours),True,-0.5,False,False,3701.3342259048236,3

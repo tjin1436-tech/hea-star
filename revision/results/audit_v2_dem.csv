@@ -1,0 +1,401 @@
+map,map_id,method,found,max_depth,penetrating,n_arcs,energy,touching
+hanksville,0,A*,True,-inf,False,0,4902.328858807042,False
+hanksville,0,TA*,True,-inf,False,0,2928.226112323972,False
+hanksville,0,TA*+turn,True,-inf,False,0,2142.0030870233527,False
+hanksville,0,HEA* (ours),True,-inf,False,1,2104.2880824096055,False
+hanksville,1,A*,True,-inf,False,0,15053.666386491408,False
+hanksville,1,TA*,True,-inf,False,0,11703.849021652037,False
+hanksville,1,TA*+turn,True,-inf,False,0,10892.831215604976,False
+hanksville,1,HEA* (ours),True,-inf,False,4,10699.642759924456,False
+hanksville,2,A*,True,-inf,False,0,7241.485990718189,False
+hanksville,2,TA*,True,-inf,False,0,3257.3178493963997,False
+hanksville,2,TA*+turn,True,-inf,False,0,2851.4705209356744,False
+hanksville,2,HEA* (ours),True,-inf,False,3,2704.866212976282,False
+hanksville,3,A*,True,-inf,False,0,6468.052407650562,False
+hanksville,3,TA*,True,-inf,False,0,6658.440897605907,False
+hanksville,3,TA*+turn,True,-inf,False,0,5712.12875006038,False
+hanksville,3,HEA* (ours),True,-inf,False,3,5491.203356446064,False
+hanksville,4,A*,True,-inf,False,0,8072.363745157992,False
+hanksville,4,TA*,True,-inf,False,0,7329.649576685784,False
+hanksville,4,TA*+turn,True,-inf,False,0,6772.8559512694055,False
+hanksville,4,HEA* (ours),True,-inf,False,2,6616.627090357724,False
+hanksville,5,A*,True,-inf,False,0,9461.899107407093,False
+hanksville,5,TA*,True,-inf,False,0,8236.570225412854,False
+hanksville,5,TA*+turn,True,-inf,False,0,7723.124951618401,False
+hanksville,5,HEA* (ours),True,-inf,False,3,7515.19688541864,False
+hanksville,6,A*,True,-inf,False,0,3722.036978483659,False
+hanksville,6,TA*,True,-inf,False,0,613.8829968507264,False
+hanksville,6,TA*+turn,True,-inf,False,0,404.177618935534,False
+hanksville,6,HEA* (ours),True,-inf,False,3,301.52806575726777,False
+hanksville,7,A*,True,-inf,False,0,6442.772347203873,False
+hanksville,7,TA*,True,-inf,False,0,4875.275768806624,False
+hanksville,7,TA*+turn,True,-inf,False,0,4795.78106337571,False
+hanksville,7,HEA* (ours),True,-inf,False,3,4567.75044813447,False
+hanksville,8,A*,True,-inf,False,0,8238.61715117611,False
+hanksville,8,TA*,True,-inf,False,0,6764.62937018137,False
+hanksville,8,TA*+turn,True,-inf,False,0,6115.825977139502,False
+hanksville,8,HEA* (ours),True,-inf,False,3,5931.357098793922,False
+hanksville,9,A*,True,-inf,False,0,6370.472478823995,False
+hanksville,9,TA*,True,-inf,False,0,5679.969422488579,False
+hanksville,9,TA*+turn,True,-inf,False,0,3682.636283718599,False
+hanksville,9,HEA* (ours),True,-inf,False,3,3490.157904592946,False
+hanksville,10,A*,True,-inf,False,0,4184.484899426937,False
+hanksville,10,TA*,True,-inf,False,0,3121.95986294559,False
+hanksville,10,TA*+turn,True,-inf,False,0,1980.7561787432926,False
+hanksville,10,HEA* (ours),True,-inf,False,1,1920.76958342615,False
+hanksville,11,A*,True,-inf,False,0,6149.595041374762,False
+hanksville,11,TA*,True,-inf,False,0,3643.6099513875065,False
+hanksville,11,TA*+turn,True,-inf,False,0,2952.378738548943,False
+hanksville,11,HEA* (ours),True,-inf,False,1,2921.686457674844,False
+hanksville,12,A*,True,-inf,False,0,6285.407602173359,False
+hanksville,12,TA*,True,-inf,False,0,4664.467482990158,False
+hanksville,12,TA*+turn,True,-inf,False,0,4208.270854535542,False
+hanksville,12,HEA* (ours),True,-inf,False,3,3954.480275771579,False
+hanksville,13,A*,True,-inf,False,0,3967.4813980080103,False
+hanksville,13,TA*,True,-inf,False,0,2884.520401474547,False
+hanksville,13,TA*+turn,True,-inf,False,0,2736.710343467376,False
+hanksville,13,HEA* (ours),True,-inf,False,1,2726.67357004331,False
+hanksville,14,A*,True,-inf,False,0,4251.292162627513,False
+hanksville,14,TA*,True,-inf,False,0,2966.7894640517684,False
+hanksville,14,TA*+turn,True,-inf,False,0,2469.906650354489,False
+hanksville,14,HEA* (ours),True,-inf,False,2,2411.279321792157,False
+hanksville,15,A*,True,-inf,False,0,5362.836276174366,False
+hanksville,15,TA*,True,-inf,False,0,1996.747143503099,False
+hanksville,15,TA*+turn,True,-inf,False,0,1488.1361487492386,False
+hanksville,15,HEA* (ours),True,-inf,False,0,1488.1361487492386,False
+hanksville,16,A*,True,-0.5,False,0,230.36179205716675,False
+hanksville,16,TA*,True,-0.5,False,0,891.5001352612355,False
+hanksville,16,TA*+turn,True,-0.5,False,0,190.69271057749194,False
+hanksville,16,HEA* (ours),True,-inf,False,6,0.0,False
+hanksville,17,A*,True,-inf,False,0,4078.6229884477025,False
+hanksville,17,TA*,True,-inf,False,0,2475.082158019491,False
+hanksville,17,TA*+turn,True,-inf,False,0,2026.6983814134871,False
+hanksville,17,HEA* (ours),True,-inf,False,0,2026.6983814134871,False
+hanksville,18,A*,True,-inf,False,0,7250.644410079083,False
+hanksville,18,TA*,True,-inf,False,0,3931.852830902029,False
+hanksville,18,TA*+turn,True,-inf,False,0,3288.160237623481,False
+hanksville,18,HEA* (ours),True,-inf,False,0,3288.160237623481,False
+hanksville,19,A*,True,-inf,False,0,2755.5323658874727,False
+hanksville,19,TA*,True,-inf,False,0,763.6197224308942,False
+hanksville,19,TA*+turn,True,-inf,False,0,567.6351110962523,False
+hanksville,19,HEA* (ours),True,-inf,False,0,567.6351110962523,False
+hanksville,20,A*,True,-inf,False,0,6006.435596314966,False
+hanksville,20,TA*,True,-inf,False,0,6027.742800416411,False
+hanksville,20,TA*+turn,True,-inf,False,0,5289.817532766545,False
+hanksville,20,HEA* (ours),True,-inf,False,2,5032.5556875431985,False
+hanksville,21,A*,True,-inf,False,0,6041.032118478294,False
+hanksville,21,TA*,True,-inf,False,0,2662.6776689456733,False
+hanksville,21,TA*+turn,True,-inf,False,0,2466.317167155946,False
+hanksville,21,HEA* (ours),True,-inf,False,2,2408.4212396192415,False
+hanksville,22,A*,True,-0.5,False,0,4561.463746748659,False
+hanksville,22,TA*,True,-0.5,False,0,2876.2622226988137,False
+hanksville,22,TA*+turn,True,-0.5,False,0,2240.4948266736774,False
+hanksville,22,HEA* (ours),True,-0.5,False,1,2088.1470644923625,False
+hanksville,23,A*,True,-inf,False,0,3913.6066411403667,False
+hanksville,23,TA*,True,-inf,False,0,2444.9042790028684,False
+hanksville,23,TA*+turn,True,-inf,False,0,1941.5189045307052,False
+hanksville,23,HEA* (ours),True,-inf,False,2,1852.3850127427459,False
+hanksville,24,A*,True,-0.5,False,0,19298.145389924608,False
+hanksville,24,TA*,True,-0.5,False,0,16476.099253048418,False
+hanksville,24,TA*+turn,True,-0.5,False,0,16060.306762098024,False
+hanksville,24,HEA* (ours),True,-0.2113678423869132,False,5,15630.546282361862,False
+palouse,0,A*,True,-inf,False,0,10903.494681339595,False
+palouse,0,TA*,True,-inf,False,0,9300.134713983163,False
+palouse,0,TA*+turn,True,-inf,False,0,8696.63840304218,False
+palouse,0,HEA* (ours),True,-inf,False,4,8554.298636561964,False
+palouse,1,A*,True,-inf,False,0,6530.760645036849,False
+palouse,1,TA*,True,-inf,False,0,4880.67015150985,False
+palouse,1,TA*+turn,True,-inf,False,0,4094.4836630674745,False
+palouse,1,HEA* (ours),True,-inf,False,3,3972.476450887967,False
+palouse,2,A*,True,-inf,False,0,9590.541282369128,False
+palouse,2,TA*,True,-inf,False,0,10534.270223466188,False
+palouse,2,TA*+turn,True,-inf,False,0,9382.787797934103,False
+palouse,2,HEA* (ours),True,-inf,False,3,9080.000770782224,False
+palouse,3,A*,True,-inf,False,0,7143.586314322439,False
+palouse,3,TA*,True,-inf,False,0,6836.018395712506,False
+palouse,3,TA*+turn,True,-inf,False,0,5215.7160213768575,False
+palouse,3,HEA* (ours),True,-inf,False,3,5045.530053879291,False
+palouse,4,A*,True,-0.5,False,0,11093.345804365716,False
+palouse,4,TA*,True,-0.5,False,0,8268.672702366335,False
+palouse,4,TA*+turn,True,-0.5,False,0,6931.549868742349,False
+palouse,4,HEA* (ours),True,-0.5,False,3,6745.426986191223,False
+palouse,5,A*,True,-inf,False,0,9897.258561943361,False
+palouse,5,TA*,True,-inf,False,0,5660.3423448768635,False
+palouse,5,TA*+turn,True,-inf,False,0,5227.690138171526,False
+palouse,5,HEA* (ours),True,-inf,False,2,5057.9045628338245,False
+palouse,6,A*,True,-inf,False,0,971.5052798362078,False
+palouse,6,TA*,True,-inf,False,0,1297.276786108987,False
+palouse,6,TA*+turn,True,-inf,False,0,915.632784169461,False
+palouse,6,HEA* (ours),True,-inf,False,0,915.632784169461,False
+palouse,7,A*,True,-inf,False,0,8895.866577898963,False
+palouse,7,TA*,True,-inf,False,0,8468.033278955385,False
+palouse,7,TA*+turn,True,-inf,False,0,7578.089453874841,False
+palouse,7,HEA* (ours),True,-inf,False,3,7441.250244033774,False
+palouse,8,A*,True,-inf,False,0,10396.326231779085,False
+palouse,8,TA*,True,-inf,False,0,7555.932276516672,False
+palouse,8,TA*+turn,True,-inf,False,0,7172.192857955908,False
+palouse,8,HEA* (ours),True,-inf,False,2,6987.426189829745,False
+palouse,9,A*,True,-inf,False,0,5489.7665405485695,False
+palouse,9,TA*,True,-inf,False,0,3443.640665840052,False
+palouse,9,TA*+turn,True,-inf,False,0,3141.922563620692,False
+palouse,9,HEA* (ours),True,-inf,False,2,3015.0857819645407,False
+palouse,10,A*,True,-inf,False,0,7361.944364878253,False
+palouse,10,TA*,True,-inf,False,0,6405.584315960099,False
+palouse,10,TA*+turn,True,-inf,False,0,5777.229706597378,False
+palouse,10,HEA* (ours),True,-inf,False,2,5652.192124997633,False
+palouse,11,A*,True,-inf,False,0,7462.427381233671,False
+palouse,11,TA*,True,-inf,False,0,5822.952626042095,False
+palouse,11,TA*+turn,True,-inf,False,0,5418.64070741916,False
+palouse,11,HEA* (ours),True,-inf,False,3,5153.358494814207,False
+palouse,12,A*,True,-inf,False,0,10677.268010176416,False
+palouse,12,TA*,True,-inf,False,0,5850.95163548287,False
+palouse,12,TA*+turn,True,-inf,False,0,4550.0107636728635,False
+palouse,12,HEA* (ours),True,-inf,False,3,4335.7008683178165,False
+palouse,13,A*,True,-inf,False,0,409.3970895369109,False
+palouse,13,TA*,True,-inf,False,0,548.4637382609319,False
+palouse,13,TA*+turn,True,-inf,False,0,336.93073596774116,False
+palouse,13,HEA* (ours),True,-inf,False,3,268.8893289041825,False
+palouse,14,A*,True,-inf,False,0,10037.193427480657,False
+palouse,14,TA*,True,-inf,False,0,7827.644763472647,False
+palouse,14,TA*+turn,True,-inf,False,0,7411.533382071511,False
+palouse,14,HEA* (ours),True,-inf,False,3,7177.616304718075,False
+palouse,15,A*,True,-inf,False,0,16279.610441554827,False
+palouse,15,TA*,True,-inf,False,0,11865.747852139968,False
+palouse,15,TA*+turn,True,-inf,False,0,11323.765041250343,False
+palouse,15,HEA* (ours),True,-inf,False,5,11154.385965582953,False
+palouse,16,A*,True,-inf,False,0,4031.0358165712814,False
+palouse,16,TA*,True,-inf,False,0,964.6605654551468,False
+palouse,16,TA*+turn,True,-inf,False,0,413.4347308388717,False
+palouse,16,HEA* (ours),True,-inf,False,1,351.2088396058533,False
+palouse,17,A*,True,-0.5,False,0,10531.093718352375,False
+palouse,17,TA*,True,-0.5,False,0,10613.375722675986,False
+palouse,17,TA*+turn,True,-0.5,False,0,10385.909163063578,False
+palouse,17,HEA* (ours),True,-0.5,False,4,10166.88614341671,False
+palouse,18,A*,True,-inf,False,0,3603.1707827463692,False
+palouse,18,TA*,True,-inf,False,0,368.81313352067747,False
+palouse,18,TA*+turn,True,-inf,False,0,273.27155637425597,False
+palouse,18,HEA* (ours),True,-0.5,False,4,189.66065495769053,False
+palouse,19,A*,True,-inf,False,0,6144.2206360925065,False
+palouse,19,TA*,True,-inf,False,0,3960.3010892602492,False
+palouse,19,TA*+turn,True,-inf,False,0,3097.266433514758,False
+palouse,19,HEA* (ours),True,-inf,False,2,2915.364729921793,False
+palouse,20,A*,True,-inf,False,0,3492.089273124462,False
+palouse,20,TA*,True,-inf,False,0,906.2885939221579,False
+palouse,20,TA*+turn,True,-inf,False,0,827.9355075349708,False
+palouse,20,HEA* (ours),True,-inf,False,2,772.5309057715396,False
+palouse,21,A*,True,-inf,False,0,9904.367651421271,False
+palouse,21,TA*,True,-inf,False,0,8685.267731510141,False
+palouse,21,TA*+turn,True,-inf,False,0,8303.882310355159,False
+palouse,21,HEA* (ours),True,-inf,False,2,8163.375653658338,False
+palouse,22,A*,True,-inf,False,0,9857.028472974793,False
+palouse,22,TA*,True,-inf,False,0,4954.461614992032,False
+palouse,22,TA*+turn,True,-inf,False,0,4281.149832311565,False
+palouse,22,HEA* (ours),True,-inf,False,1,4159.69119269222,False
+palouse,23,A*,True,-inf,False,0,4279.678414992916,False
+palouse,23,TA*,True,-inf,False,0,3596.697942338238,False
+palouse,23,TA*+turn,True,-inf,False,0,2670.4092436768287,False
+palouse,23,HEA* (ours),True,-inf,False,1,2576.2470151139873,False
+palouse,24,A*,True,-inf,False,0,15959.272161462854,False
+palouse,24,TA*,True,-inf,False,0,11926.68685477079,False
+palouse,24,TA*+turn,True,-inf,False,0,10872.007143294972,False
+palouse,24,HEA* (ours),True,-inf,False,5,10559.57582260975,False
+flinthills,0,A*,True,-inf,False,0,6909.160608973447,False
+flinthills,0,TA*,True,-inf,False,0,3586.2470137311434,False
+flinthills,0,TA*+turn,True,-inf,False,0,2901.462178219314,False
+flinthills,0,HEA* (ours),True,-inf,False,1,2749.025564743582,False
+flinthills,1,A*,True,-inf,False,0,5987.817170995572,False
+flinthills,1,TA*,True,-inf,False,0,4463.864165070139,False
+flinthills,1,TA*+turn,True,-inf,False,0,3236.83842385409,False
+flinthills,1,HEA* (ours),True,-inf,False,2,3131.6368609193473,False
+flinthills,2,A*,True,-0.5,False,0,8095.883289857481,False
+flinthills,2,TA*,True,-0.5,False,0,5162.735415708532,False
+flinthills,2,TA*+turn,True,-0.5,False,0,4674.222613028003,False
+flinthills,2,HEA* (ours),True,-0.5,False,2,4387.773752632027,False
+flinthills,3,A*,True,-inf,False,0,5295.852714717691,False
+flinthills,3,TA*,True,-inf,False,0,1541.3918123756525,False
+flinthills,3,TA*+turn,True,-inf,False,0,1337.705413560264,False
+flinthills,3,HEA* (ours),True,-inf,False,0,1337.705413560264,False
+flinthills,4,A*,True,-inf,False,0,9894.30879133232,False
+flinthills,4,TA*,True,-inf,False,0,7706.7589533007185,False
+flinthills,4,TA*+turn,True,-inf,False,0,7595.013961967225,False
+flinthills,4,HEA* (ours),True,-inf,False,2,7442.628930662341,False
+flinthills,5,A*,True,-inf,False,0,6777.385986640464,False
+flinthills,5,TA*,True,-inf,False,0,5716.44046081877,False
+flinthills,5,TA*+turn,True,-inf,False,0,4954.716853359386,False
+flinthills,5,HEA* (ours),True,-inf,False,2,4813.803539234429,False
+flinthills,6,A*,True,-inf,False,0,5792.118137340083,False
+flinthills,6,TA*,True,-inf,False,0,2282.8452851114475,False
+flinthills,6,TA*+turn,True,-inf,False,0,2171.1002937779544,False
+flinthills,6,HEA* (ours),True,-inf,False,0,2171.1002937779544,False
+flinthills,7,A*,True,-inf,False,0,2569.1227524208625,False
+flinthills,7,TA*,True,-inf,False,0,3178.9536952394483,False
+flinthills,7,TA*+turn,True,-inf,False,0,2480.2588898126673,False
+flinthills,7,HEA* (ours),True,-inf,False,1,2268.3202254044195,False
+flinthills,8,A*,True,-inf,False,0,6210.9116855496295,False
+flinthills,8,TA*,True,-inf,False,0,3316.120462558834,False
+flinthills,8,TA*+turn,True,-inf,False,0,2293.4623001028335,False
+flinthills,8,HEA* (ours),True,-inf,False,0,2293.4623001028335,False
+flinthills,9,A*,True,-inf,False,0,3007.875034831275,False
+flinthills,9,TA*,True,-inf,False,0,2548.967796757186,False
+flinthills,9,TA*+turn,True,-inf,False,0,2311.872309100069,False
+flinthills,9,HEA* (ours),True,-inf,False,2,2203.523232153727,False
+flinthills,10,A*,True,-inf,False,0,10701.946175773935,False
+flinthills,10,TA*,True,-inf,False,0,5146.750512637397,False
+flinthills,10,TA*+turn,True,-inf,False,0,4334.946261667592,False
+flinthills,10,HEA* (ours),True,-inf,False,1,4300.110317678279,False
+flinthills,11,A*,True,-inf,False,0,6227.357803796942,False
+flinthills,11,TA*,True,-inf,False,0,3833.064686811458,False
+flinthills,11,TA*+turn,True,-inf,False,0,2804.7508158564488,False
+flinthills,11,HEA* (ours),True,-inf,False,0,2804.7508158564488,False
+flinthills,12,A*,True,-inf,False,0,7550.074347277804,False
+flinthills,12,TA*,True,-inf,False,0,6998.402578264828,False
+flinthills,12,TA*+turn,True,-inf,False,0,6586.469232990956,False
+flinthills,12,HEA* (ours),True,-inf,False,1,6547.010419947888,False
+flinthills,13,A*,True,-inf,False,0,2258.249300731519,False
+flinthills,13,TA*,True,-inf,False,0,947.9812478808803,False
+flinthills,13,TA*+turn,True,-inf,False,0,590.358906700759,False
+flinthills,13,HEA* (ours),True,-inf,False,1,521.6375873900654,False
+flinthills,14,A*,True,-inf,False,0,3593.646906632061,False
+flinthills,14,TA*,True,-inf,False,0,2752.578169318018,False
+flinthills,14,TA*+turn,True,-inf,False,0,2351.4432736948797,False
+flinthills,14,HEA* (ours),True,-inf,False,1,2290.927300540739,False
+flinthills,15,A*,True,-inf,False,0,3334.4643140381627,False
+flinthills,15,TA*,True,-inf,False,0,2738.6488233079317,False
+flinthills,15,TA*+turn,True,-inf,False,0,1939.696540417441,False
+flinthills,15,HEA* (ours),True,-inf,False,1,1932.4070441366841,False
+flinthills,16,A*,True,-0.5,False,0,4097.815430787833,False
+flinthills,16,TA*,True,-0.5,False,0,3900.6670913583575,False
+flinthills,16,TA*+turn,True,-0.5,False,0,3712.307499939209,False
+flinthills,16,HEA* (ours),True,-0.5,False,0,3712.307499939209,False
+flinthills,17,A*,True,-inf,False,0,10509.408272500128,False
+flinthills,17,TA*,True,-inf,False,0,9133.588269336902,False
+flinthills,17,TA*+turn,True,-inf,False,0,8822.367328212671,False
+flinthills,17,HEA* (ours),True,-inf,False,3,8802.116591309172,False
+flinthills,18,A*,True,-0.5,False,0,5340.089408161997,False
+flinthills,18,TA*,True,-0.5,False,0,3641.352710724989,False
+flinthills,18,TA*+turn,True,-0.5,False,0,3141.2564277137776,False
+flinthills,18,HEA* (ours),True,-0.5,False,3,2969.36376855433,False
+flinthills,19,A*,True,-inf,False,0,10277.25322831687,False
+flinthills,19,TA*,True,-inf,False,0,6380.693060016719,False
+flinthills,19,TA*+turn,True,-inf,False,0,5669.064645042888,False
+flinthills,19,HEA* (ours),True,-inf,False,4,5295.88427022048,False
+flinthills,20,A*,True,-inf,False,0,4419.361286637091,False
+flinthills,20,TA*,True,-inf,False,0,3420.7749958584336,False
+flinthills,20,TA*+turn,True,-inf,False,0,2462.881877379018,False
+flinthills,20,HEA* (ours),True,-inf,False,1,2459.7937470598417,False
+flinthills,21,A*,True,-inf,False,0,9284.692563544104,False
+flinthills,21,TA*,True,-inf,False,0,7116.300645406966,False
+flinthills,21,TA*+turn,True,-inf,False,0,5918.200573681741,False
+flinthills,21,HEA* (ours),True,-inf,False,2,5738.768031758634,False
+flinthills,22,A*,True,-0.5,False,0,7997.995716320473,False
+flinthills,22,TA*,True,-0.5,False,0,6363.06752414957,False
+flinthills,22,TA*+turn,True,-0.5,False,0,5382.471264343847,False
+flinthills,22,HEA* (ours),True,-0.5,False,2,5212.752596413886,False
+flinthills,23,A*,True,-inf,False,0,6706.107758039875,False
+flinthills,23,TA*,True,-inf,False,0,4118.125649747402,False
+flinthills,23,TA*+turn,True,-inf,False,0,3792.2145100167836,False
+flinthills,23,HEA* (ours),True,-inf,False,2,3702.632688650776,False
+flinthills,24,A*,True,-inf,False,0,6797.449626682225,False
+flinthills,24,TA*,True,-inf,False,0,5087.818891151166,False
+flinthills,24,TA*+turn,True,-inf,False,0,4638.573306911368,False
+flinthills,24,HEA* (ours),True,-inf,False,2,4503.971751455918,False
+mojave,0,A*,True,-inf,False,0,6130.075806047585,False
+mojave,0,TA*,True,-inf,False,0,3336.5521460449,False
+mojave,0,TA*+turn,True,-inf,False,0,3126.298231370154,False
+mojave,0,HEA* (ours),True,-inf,False,2,3062.465667460203,False
+mojave,1,A*,True,-inf,False,0,7812.22471382111,False
+mojave,1,TA*,True,-inf,False,0,3810.4058965119357,False
+mojave,1,TA*+turn,True,-inf,False,0,2942.6497630305284,False
+mojave,1,HEA* (ours),True,-inf,False,2,2897.070187048052,False
+mojave,2,A*,True,-inf,False,0,4899.7553700141225,False
+mojave,2,TA*,True,-inf,False,0,4898.493076364548,False
+mojave,2,TA*+turn,True,-inf,False,0,3902.2468524290166,False
+mojave,2,HEA* (ours),True,-inf,False,1,3744.191550260153,False
+mojave,3,A*,True,-inf,False,0,10136.288424353144,False
+mojave,3,TA*,True,-inf,False,0,8523.688482130498,False
+mojave,3,TA*+turn,True,-inf,False,0,8032.270597190583,False
+mojave,3,HEA* (ours),True,-inf,False,4,7712.306467341188,False
+mojave,4,A*,True,-0.5,False,0,7730.328661224307,False
+mojave,4,TA*,True,-0.5,False,0,4006.5297236336437,False
+mojave,4,TA*+turn,True,-0.5,False,0,3955.258762785125,False
+mojave,4,HEA* (ours),True,-0.5,False,2,3768.291442036877,False
+mojave,5,A*,True,-inf,False,0,4396.937017405877,False
+mojave,5,TA*,True,-inf,False,0,3512.994502462789,False
+mojave,5,TA*+turn,True,-inf,False,0,3289.802582759852,False
+mojave,5,HEA* (ours),True,-inf,False,3,3264.8079822014915,False
+mojave,6,A*,True,-inf,False,0,4037.4866096559535,False
+mojave,6,TA*,True,-inf,False,0,4191.302046969082,False
+mojave,6,TA*+turn,True,-inf,False,0,4037.4019321079522,False
+mojave,6,HEA* (ours),True,-inf,False,2,4013.609131888451,False
+mojave,7,A*,True,-0.5,False,0,6896.295168318995,False
+mojave,7,TA*,True,-0.5,False,0,6357.8005315713945,False
+mojave,7,TA*+turn,True,-0.5,False,0,5426.097819722959,False
+mojave,7,HEA* (ours),True,-0.5,False,2,5323.315758647995,False
+mojave,8,A*,True,-inf,False,0,2306.266098224713,False
+mojave,8,TA*,True,-inf,False,0,2466.868190127962,False
+mojave,8,TA*+turn,True,-inf,False,0,2306.266098224713,False
+mojave,8,HEA* (ours),True,-inf,False,0,2306.266098224713,False
+mojave,9,A*,True,-inf,False,0,6386.9299450752005,False
+mojave,9,TA*,True,-inf,False,0,5997.042829073451,False
+mojave,9,TA*+turn,True,-inf,False,0,4951.168126858995,False
+mojave,9,HEA* (ours),True,-inf,False,2,4821.553663998789,False
+mojave,10,A*,True,-inf,False,0,6899.504624467261,False
+mojave,10,TA*,True,-inf,False,0,5184.453027524286,False
+mojave,10,TA*+turn,True,-inf,False,0,4167.312597023768,False
+mojave,10,HEA* (ours),True,-inf,False,3,3988.8265509756234,False
+mojave,11,A*,True,-inf,False,0,9490.459743008305,False
+mojave,11,TA*,True,-inf,False,0,4151.526851825256,False
+mojave,11,TA*+turn,True,-inf,False,0,3185.3185933880186,False
+mojave,11,HEA* (ours),True,-inf,False,1,3090.4288897186466,False
+mojave,12,A*,True,-inf,False,0,4045.515461025587,False
+mojave,12,TA*,True,-inf,False,0,2875.4588387971035,False
+mojave,12,TA*+turn,True,-inf,False,0,1957.7150801194255,False
+mojave,12,HEA* (ours),True,-inf,False,0,1957.7150801194255,False
+mojave,13,A*,True,-inf,False,0,7895.2070935959655,False
+mojave,13,TA*,True,-inf,False,0,4105.646604881276,False
+mojave,13,TA*+turn,True,-inf,False,0,3930.948331061158,False
+mojave,13,HEA* (ours),True,-inf,False,1,3812.4048165924155,False
+mojave,14,A*,True,-inf,False,0,3581.3885859241896,False
+mojave,14,TA*,True,-inf,False,0,2786.129371768626,False
+mojave,14,TA*+turn,True,-inf,False,0,2398.3844361166293,False
+mojave,14,HEA* (ours),True,-inf,False,2,2384.742262235383,False
+mojave,15,A*,True,-inf,False,0,4054.3171205838526,False
+mojave,15,TA*,True,-inf,False,0,3226.2828748074994,False
+mojave,15,TA*+turn,True,-inf,False,0,2367.4741207618617,False
+mojave,15,HEA* (ours),True,-inf,False,2,2270.321955898964,False
+mojave,16,A*,True,-inf,False,0,4444.790715357516,False
+mojave,16,TA*,True,-inf,False,0,3525.4214699264567,False
+mojave,16,TA*+turn,True,-inf,False,0,3358.6589732710954,False
+mojave,16,HEA* (ours),True,-inf,False,2,3225.1389754542224,False
+mojave,17,A*,True,-inf,False,0,2724.7479649498105,False
+mojave,17,TA*,True,-inf,False,0,2765.0836254655483,False
+mojave,17,TA*+turn,True,-inf,False,0,2505.609654181784,False
+mojave,17,HEA* (ours),True,-inf,False,2,2505.1835227261727,False
+mojave,18,A*,True,-inf,False,0,5804.287211981974,False
+mojave,18,TA*,True,-inf,False,0,5785.38804788556,False
+mojave,18,TA*+turn,True,-inf,False,0,5136.570095055237,False
+mojave,18,HEA* (ours),True,-inf,False,3,5025.121208408131,False
+mojave,19,A*,True,-0.5,False,0,11791.730813152002,False
+mojave,19,TA*,True,-0.5,False,0,4286.769726550139,False
+mojave,19,TA*+turn,True,-0.5,False,0,3844.1249094803825,False
+mojave,19,HEA* (ours),True,-0.5,False,2,3783.8665484804505,False
+mojave,20,A*,True,-inf,False,0,2007.1083894355452,False
+mojave,20,TA*,True,-inf,False,0,2022.326427974176,False
+mojave,20,TA*+turn,True,-inf,False,0,1480.1603718631861,False
+mojave,20,HEA* (ours),True,-inf,False,0,1480.1603718631861,False
+mojave,21,A*,True,-inf,False,0,4345.568170249094,False
+mojave,21,TA*,True,-inf,False,0,3457.98417800371,False
+mojave,21,TA*+turn,True,-inf,False,0,2987.0964763134402,False
+mojave,21,HEA* (ours),True,-inf,False,2,2950.6080782106155,False
+mojave,22,A*,True,-0.5,False,0,3284.4417748137694,False
+mojave,22,TA*,True,-0.5,False,0,3541.1673946529213,False
+mojave,22,TA*+turn,True,-0.5,False,0,2250.4556181037656,False
+mojave,22,HEA* (ours),True,-0.5,False,1,2153.46924325436,False
+mojave,23,A*,True,-inf,False,0,5074.656369654428,False
+mojave,23,TA*,True,-0.5,False,0,3951.5196486921313,False
+mojave,23,TA*+turn,True,-inf,False,0,3256.6685193929447,False
+mojave,23,HEA* (ours),True,-inf,False,2,3173.7196344026224,False
+mojave,24,A*,True,-0.5,False,0,8257.177302903094,False
+mojave,24,TA*,True,-0.5,False,0,7841.5685020977135,False
+mojave,24,TA*+turn,True,-0.5,False,0,6736.3004326817345,False
+mojave,24,HEA* (ours),True,-0.5,False,3,6566.198372539913,False

@@ -42,9 +42,12 @@ class Robot:
     turn_gain: float = 1.0   # scales the turning moment M (calibration / sensitivity; 1 = Wong model)
 
 
+WONG_A, WONG_B = 0.925, 0.15   # coefficients of the lateral-friction law (sensitivity)
+
+
 def mu_lat(mu_l0, R, B):
     """Wong's empirical lateral friction coefficient for turning radius R (R=0: in place)."""
-    return mu_l0 / (0.925 + 0.15 * R / B)
+    return mu_l0 / (WONG_A + WONG_B * R / B)
 
 
 def track_energy(ds, slope, mu_r, mu_l0, R, rb: Robot, const_mu=False):

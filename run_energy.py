@@ -153,7 +153,7 @@ def plot_example(size, seed, rb, out):
         ax.set_xticks([]); ax.set_yticks([])
     axes[0].set_title("terrain: " + ", ".join(f"{n}" for n in TERRAIN_NAMES) + " (grey→orange)")
     axes[1].set_title("elevation")
-    axes[0].legend(fontsize=8, loc="upper left")
+    axes[0].legend(fontsize=8, loc="lower left")
     fig.tight_layout()
     fig.savefig(out, dpi=200)
     plt.close(fig)
