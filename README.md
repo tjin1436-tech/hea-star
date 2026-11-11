@@ -2,7 +2,7 @@
 
 Code and data for the paper
 
-> J. Tian and S. Kim, "Turning-Aware Energy-Efficient Path Planning for Tracked Robots on Mixed Terrain," submitted to *Robotica*.
+> J. Tian and J. Kim, "Turning-Aware Energy-Efficient Path Planning for Tracked Robots on Mixed Terrain," submitted to *Robotica*.
 
 HEA* (Heading-lattice Energy A*) plans paths for skid-steer tracked robots on an (x, y, θ) lattice with eight headings. It prices straight motion, 45° arcs of four radii and ±45° point turns with a skid-steer power model. The model covers radius-dependent lateral friction, inner-track braking, terrain-specific rolling resistance and slope. An admissible energy heuristic keeps the search optimal within the lattice.
 
