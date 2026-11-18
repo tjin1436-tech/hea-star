@@ -2,9 +2,9 @@
 
 Code and data for the paper
 
-> J. Tian and J. Kim, "Turning-Aware Energy-Efficient Path Planning for Tracked Robots on Mixed Terrain," submitted to *Robotica*.
+> J. Tian and J. Kim, "The Role of Turning Energy in Path Planning for Tracked Robots," submitted to *Robotica*.
 
-HEA* (Heading-lattice Energy A*) plans paths for skid-steer tracked robots on an (x, y, θ) lattice with eight headings. It prices straight motion, 45° arcs of four radii and ±45° point turns with a skid-steer power model. The model covers radius-dependent lateral friction, inner-track braking, terrain-specific rolling resistance and slope. An admissible energy heuristic keeps the search optimal within the lattice.
+HEA* (Heading-lattice Energy A*) plans paths for skid-steer tracked robots on an (x, y, θ) lattice with 16 grid-aligned headings. It prices straight motion, arcs to either neighbouring heading at four scales, and point turns. Arc energy uses the local curvature of the sampled Bézier path. The 8-heading lattice is retained as an ablation; 32-heading primitives are also supported for the heading-resolution study. The skid-steer power model covers radius-dependent lateral friction, inner-track braking, terrain-specific rolling resistance and slope. An admissible energy heuristic keeps the search optimal within the lattice.
 
 ## Requirements
 
@@ -21,44 +21,52 @@ Everything runs on a CPU. No GPU is needed.
 | File | Content |
 |---|---|
 | `energy_model.py` | Robot parameters, surface coefficients, skid-steer energy model, synthetic map generator, DEM loader |
-| `lattice.py` | Motion primitives, heading lattice, HEA* search, grid A* baselines |
-| `run_energy.py` | Main experiment on synthetic maps (A*, TA*, TA*+turn, HEA*) with Wilcoxon tests |
+| `lattice.py` | 8-, 16-, and 32-heading motion primitives, HEA* search, and grid A* baselines |
+| `run_energy.py` | Main synthetic experiment with 8- and 16-heading planner ablations and paired Wilcoxon tests |
 | `sensitivity_energy.py` | Sensitivity to track length, friction scale and turning-moment gain |
 | `run_dem.py` | Real-terrain experiment on AWS Terrain Tiles (needs Internet access) |
 | `validation/validate_morales.py` | Check of the turning model against the measurements of Morales et al. (2009) |
 | `model_figures.py`, `result_figures.py`, `paper_figs_extra.py` | Paper figures |
-| `energy_kaggle.ipynb` | All steps in one notebook, tested on Kaggle (CPU) |
-| `results/` | The result files reported in the paper |
+| `energy_kaggle.ipynb` | Main implementation and experiment steps in one notebook |
+| `results/` | Historical eight-heading results; rerun the scripts for the 16-heading main configuration |
 | `revision/` | Additional analyses: effect sizes, arc usage, joint parameter uncertainty, Dijkstra check, discretisation, DEM resampling, any-angle baseline; results in `revision/results/` |
 
 ## Reproducing the paper
 
 ```
 python run_energy.py --maps 50 --size 80 --out results_energy          # Table 8 and Fig. 6
-python sensitivity_energy.py --maps 20 --out results_energy_sens       # Table 14 and Fig. 8
+python sensitivity_energy.py --maps 20 --out results_energy_sens       # Table 16
 python run_dem.py --crops 25 --out results_dem                          # Table 10 (downloads DEM tiles)
 python validation/validate_morales.py                                   # Section 3.5
 python result_figures.py results_energy/energy_raw.csv results_energy_sens/sensitivity_energy.csv figs
 python model_figures.py figs
-python revision/effect_sizes.py results_energy/energy_raw.csv synthetic eff_synthetic.csv   # Table 11
-python revision/collision_audit.py . audit_synthetic.csv                # collision audit (Section 6.6)
-python revision/rev_experiments.py features --n 50       # Section 6.3
-python revision/arc_usage.py                              # Table 13
+python revision/effect_sizes.py results_energy/energy_raw.csv synthetic eff_synthetic.csv   # Table 9
+python revision/collision_audit.py . audit_synthetic.csv                # collision audit (Section 6.7)
+python revision/rev_experiments.py features --n 50       # Section 6.2
+python revision/arc_usage.py                              # Table 12
 python revision/rev_experiments.py anyangle --n 50       # Section 6.3
-python revision/dem_resample.py                           # Table 12 (needs the DEM tiles of run_dem.py)
-CONSERVATIVE=1 python revision/rev_experiments.py uncertainty --n 50   # Table 15
-python revision/rev_experiments.py optimality --n 10 --size 40          # Section 6.6
-python revision/rev_experiments.py discret --n 20                       # Table 16
+python revision/dem_resample.py                           # Section 6.7 (needs the DEM tiles of run_dem.py)
+CONSERVATIVE=1 python revision/rev_experiments.py uncertainty --n 50   # Table 17
+python revision/rev_experiments.py optimality --n 10 --size 40          # Section 6.7
+python revision/rev_experiments.py discret --n 20                       # Table 18
 ```
 
-Random seeds are fixed in the scripts, so the runs reproduce the files in `results/`.
+Random seeds are fixed in the scripts. The committed historical CSV files are not regenerated automatically.
 
-All primitives use a conservative swept-cell collision check (`lattice.swept_cells`, 0.1-cell sampling): a path may neither enter nor touch a blocked cell. An earlier version of the code checked only sample points every 0.25 cells; its results are superseded by the files in `results/`.
+All primitives use a conservative swept-cell collision check (`lattice.swept_cells`, 0.1-cell sampling): a path may neither enter nor touch a blocked cell. The primary synthetic and DEM scripts use the 16-heading lattice; revision experiments that study the 8-heading lattice keep that setting.
+
+The validation script uses the reported friction coefficient 0.81 as the numerator of the radius law. It predicts 0.54 kJ/rad for a point turn (measured-to-model ratio 9.6), 0.83 kJ/rad at R = 1 m, and 1.15 kJ/rad at R = 3 m. The 11.15 manuscript draft's Table 6 reports 0.51, 0.75, and 1.02 kJ/rad, respectively; update those values and the stated ratios to match the equation before submission.
+
+The CSV files currently committed under `results/` were generated by the earlier 8-heading implementation. Re-run the commands above to generate results for the 16-heading main configuration; the old files are retained as historical outputs and should not be cited as the 11.15 main results.
 
 ## Data sources
 
 - Elevation: [AWS Terrain Tiles](https://registry.opendata.aws/terrain-tiles/) (Terrarium encoding, zoom 15). In the United States these are derived from the USGS 3D Elevation Program. The tiles are downloaded by `run_dem.py` and are not redistributed here.
 - `validation/morales2009_table3.csv` was transcribed from Table III of J. Morales et al., "Power consumption modeling of skid-steer tracked mobile robots on rigid terrain," *IEEE Trans. Robot.* 25(5), 1098–1108 (2009).
+
+## Reproduction status
+
+The repository is not yet a complete one-command reproduction of the 11.15 manuscript. The main scripts cover the 16-heading planner, the 8-heading ablation, grid baselines, and DEM crops with synthetic surface labels. The 32-heading primitives are supported, but its 80-instance ablation runner is still needed. The full comparison set, separate ESA WorldCover experiment, and stop-and-turn / pure-pursuit tracking analyses also need complete runners. Regenerate those results before treating the committed historical CSVs as evidence for the 11.15 conclusions.
 
 ## Citation
 
