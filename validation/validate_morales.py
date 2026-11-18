@@ -16,7 +16,7 @@ here = os.path.dirname(os.path.abspath(__file__))
 rows = list(csv.DictReader(open(os.path.join(here, "morales2009_table3.csv"))))
 m, K, eta, P0, mu = 286.0, 342.0, 0.95, 58.0, 0.81       # Morales et al. 2009, Sec. III
 rb = Robot(mass=m, B=0.42, L=0.72, eta=eta)
-mu_r, mu_l0 = K / (m * G), mu * 0.925                      # so that mu_l(0) = 0.81
+mu_r, mu_l0 = K / (m * G), mu                              # numerator in the radius law
 E = np.array([float(r["energy_kJ"]) * 1e3 for r in rows])
 T = np.array([float(r["time_s"]) for r in rows])
 s = np.array([float(r["length_m"]) for r in rows])

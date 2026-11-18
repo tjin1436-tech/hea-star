@@ -84,12 +84,13 @@ def job(args):
         tm = crop_map(elev1m, size, rng, rb)
         if tm is None:
             return []
-        ends = RE.pick(tm, rng)
+        ends = RE.pick(tm, rng, headings=16)
         if ends is None:
             continue
         s, g, h0 = ends
-        full = Lattice(tm, rb)
-        if grid_astar(full, s, g, energy=False)[0] is None:
+        full = Lattice(tm, rb, headings=16)
+        grid_cost = Lattice(tm, rb, arcs=False, headings=8)
+        if grid_astar(full, s, g, energy=False, cost_lattice=grid_cost)[0] is None:
             continue
         rows = RE.compare(tm, full, s, g, h0, rb, region, idx)
         for r in rows:

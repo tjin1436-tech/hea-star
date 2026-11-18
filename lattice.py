@@ -1,9 +1,8 @@
 """Planners for the tracked-robot energy study.
 
-State lattice over (x, y, heading), 8 headings (45 deg). Motion primitives per heading:
-  S   straight one cell (1 or sqrt(2) m)
-  Ak  45-deg arc to offset k (d_h + d_{h+-1}), k in ARC_SCALES (radius ~2.9 k cells)
-  R   in-place rotation by +-45 deg
+State lattice over (x, y, heading), with either 8 or 16 grid-aligned headings.
+The 16-heading lattice is the paper's main configuration; 8 headings are retained
+for ablations. Each heading has a straight move, arcs to either neighbour, and a turn.
 Edge energies are precomputed for every cell with numpy (energy_model.track_energy), so the
 search itself only does table look-ups.
 
@@ -25,8 +24,12 @@ from scipy.ndimage import map_coordinates
 from energy_model import G, Robot, rotate_energy, track_energy
 
 DIRS = [(1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1), (0, -1), (1, -1)]
-STEP = math.pi / 4
-ARC_SCALES = (1, 2, 4, 8)   # 45-deg arcs with radii ~2.9, 5.8, 11.7, 23.4 cells
+DIRS16 = [(1, 0), (2, 1), (1, 1), (1, 2), (0, 1), (-1, 2), (-1, 1), (-2, 1),
+          (-1, 0), (-2, -1), (-1, -1), (-1, -2), (0, -1), (1, -2), (1, -1), (2, -1)]
+GRID_DIRS = DIRS
+DIRECTION_SETS = {8: DIRS, 16: DIRS16}
+STEP = math.pi / 4  # legacy 8-heading step used by the revision scripts
+ARC_SCALES = (1, 2, 4, 8)
 SAMPLE_DS = 0.1             # sampling interval (cells) for edge-cost integration and collision checking
 COLL_MARGIN = 0.05          # half-width (cells) of the box checked around every sample, >= half the sample gap
 
@@ -56,47 +59,91 @@ def _bezier(p1, th0, th1, n):
     return (1 - t) ** 3 * p0 + 3 * (1 - t) ** 2 * t * c1 + 3 * (1 - t) * t ** 2 * c2 + t ** 3 * p1
 
 
-def primitives(h, arcs=True):
-    """List of dicts: dh, off, R, length, samples (k,2)."""
-    d = np.array(DIRS[h])
-    th = h * STEP
+def _heading_angles(directions):
+    return np.array([math.atan2(y, x) for x, y in directions])
+
+
+def _turn_angle(h, direction, angles):
+    n = len(angles)
+    if direction > 0:
+        return (angles[(h + 1) % n] - angles[h]) % (2 * math.pi)
+    return -((angles[h] - angles[(h - 1) % n]) % (2 * math.pi))
+
+
+def _bezier_radii(p1, th0, th1, n):
+    """Curvature radii at the midpoint of each sampled cubic-Bezier segment."""
+    p0 = np.zeros(2)
+    p1 = np.asarray(p1, float)
+    c = np.linalg.norm(p1) / 3
+    c1 = p0 + c * np.array([math.cos(th0), math.sin(th0)])
+    c2 = p1 - c * np.array([math.cos(th1), math.sin(th1)])
+    t = (np.arange(n - 1, dtype=float) + 0.5) / (n - 1)
+    omt = 1 - t
+    d1 = (3 * omt[:, None] ** 2 * (c1 - p0)
+          + 6 * (omt * t)[:, None] * (c2 - c1)
+          + 3 * t[:, None] ** 2 * (p1 - c2))
+    d2 = (6 * omt[:, None] * (c2 - 2 * c1 + p0)
+          + 6 * t[:, None] * (p1 - 2 * c2 + c1))
+    cross = np.abs(d1[:, 0] * d2[:, 1] - d1[:, 1] * d2[:, 0])
+    return np.divide(np.linalg.norm(d1, axis=1) ** 3, cross,
+                     out=np.full_like(cross, np.inf), where=cross > 1e-12)
+
+
+def primitives(h, arcs=True, headings=8):
+    """Create primitives for one heading; arc costs use local curve curvature."""
+    if headings not in DIRECTION_SETS:
+        raise ValueError("headings must be 8 or 16")
+    directions = DIRECTION_SETS[headings]
+    angles = _heading_angles(directions)
+    d = np.array(directions[h])
+    th = angles[h]
     Ls = float(np.linalg.norm(d))
     out = [dict(name="S", dh=0, off=tuple(d), R=math.inf, length=Ls,
+                turn=0.0, radii=None,
                 samples=np.linspace([0, 0], d, int(math.ceil(Ls / SAMPLE_DS)) + 1))]
     if arcs:
         for s in (1, -1):
-            d2 = np.array(DIRS[(h + s) % 8])
+            delta = _turn_angle(h, s, angles)
+            d2 = np.array(directions[(h + s) % headings])
             for k in ARC_SCALES:
-                name = f"A{k}"
                 off = k * (d + d2)
                 chord = float(np.linalg.norm(off))
-                R = chord / (2 * math.sin(STEP / 2))
-                L = R * STEP
-                out.append(dict(name=name, dh=s, off=tuple(off), R=R, length=L,
-                                samples=_bezier(off, th, th + s * STEP, int(math.ceil(L / SAMPLE_DS)) + 1)))
+                R = chord / (2 * math.sin(abs(delta) / 2))
+                nominal_length = R * abs(delta)
+                samples = _bezier(off, th, th + delta,
+                                  int(math.ceil(nominal_length / SAMPLE_DS)) + 1)
+                sampled_length = float(np.linalg.norm(np.diff(samples, axis=0), axis=1).sum())
+                out.append(dict(name=f"A{k}", dh=s, off=tuple(off), R=R, length=sampled_length, turn=delta,
+                                radii=_bezier_radii(off, th, th + delta, len(samples)), samples=samples))
     for s in (1, -1):
-        out.append(dict(name="R", dh=s, off=(0, 0), R=0.0, length=0.0, samples=np.zeros((1, 2))))
+        out.append(dict(name="R", dh=s, off=(0, 0), R=0.0, length=0.0,
+                        turn=_turn_angle(h, s, angles), radii=None, samples=np.zeros((1, 2))))
     return out
 
 
 class Lattice:
     """Precomputed edge tables for one map. cost[h][p] -> (N,N) energy (inf = invalid)."""
 
-    def __init__(self, tm, rb: Robot = Robot(), arcs=True, const_mu=False):
+    def __init__(self, tm, rb: Robot = Robot(), arcs=True, const_mu=False, headings=8):
+        if headings not in DIRECTION_SETS:
+            raise ValueError("headings must be 8 or 16")
         self.tm, self.rb, self.arcs = tm, rb, arcs
+        self.heading_count = headings
+        self.dirs = DIRECTION_SETS[headings]
+        self.heading_angles = _heading_angles(self.dirs)
         n = tm.elev.shape[0]
         self.n = n
         X, Y = np.mgrid[0:n, 0:n].astype(float)
         mu_r, mu_l0 = tm.mu_r, tm.mu_l0
-        self.prims = [primitives(h, arcs) for h in range(8)]
+        self.prims = [primitives(h, arcs, headings) for h in range(headings)]
         self.cost, self.true_cost, self.dur = [], [], []
-        for h in range(8):
+        for h in range(headings):
             cs, ts, ds_ = [], [], []
             for p in self.prims[h]:
                 if p["name"] == "R":
-                    e = rotate_energy(STEP, mu_r, mu_l0, rb)
+                    e = rotate_energy(abs(p["turn"]), mu_r, mu_l0, rb)
                     e = np.where(tm.free, e, np.inf)
-                    cs.append(e); ts.append(e); ds_.append(STEP / rb.omega)
+                    cs.append(e); ts.append(e); ds_.append(abs(p["turn"]) / rb.omega)
                     continue
                 S = p["samples"]
                 valid = np.ones((n, n), bool)
@@ -115,8 +162,9 @@ class Lattice:
                     mx = np.clip(np.rint(X + mid[0]).astype(int), 0, n - 1)
                     my = np.clip(np.rint(Y + mid[1]).astype(int), 0, n - 1)
                     slope = (z[k + 1] - z[k]) / seg[k]
-                    e_true += track_energy(seg[k], slope, mu_r[mx, my], mu_l0[mx, my], p["R"] * tm.cell, rb)
-                    e_plan += track_energy(seg[k], slope, mu_r[mx, my], mu_l0[mx, my], p["R"] * tm.cell, rb,
+                    radius = math.inf if p["radii"] is None else p["radii"][k] * tm.cell
+                    e_true += track_energy(seg[k], slope, mu_r[mx, my], mu_l0[mx, my], radius, rb)
+                    e_plan += track_energy(seg[k], slope, mu_r[mx, my], mu_l0[mx, my], radius, rb,
                                            const_mu=const_mu)
                 cs.append(np.where(valid, e_plan, np.inf))
                 ts.append(np.where(valid, e_true, np.inf))
@@ -157,7 +205,7 @@ class Lattice:
                 c = self.cost[h][pi][x, y]
                 if not np.isfinite(c):
                     continue
-                nx, ny, nh = x + p["off"][0], y + p["off"][1], (h + p["dh"]) % 8
+                nx, ny, nh = x + p["off"][0], y + p["off"][1], (h + p["dh"]) % self.heading_count
                 ns = (nx, ny, nh)
                 ng = gc + c
                 if ng < g.get(ns, math.inf) - 1e-9:
@@ -186,13 +234,13 @@ class Lattice:
             T += self.dur[h][pi]
             L += p["length"] * self.tm.cell
             if p["name"] == "R":
-                rot += STEP
+                rot += abs(p["turn"])
                 if not prev_rot:
                     point_turns += 1
                 prev_rot = True
             else:
                 if p["dh"]:
-                    rot += STEP
+                    rot += abs(p["turn"])
                 prev_rot = False
         return dict(energy=E, time_s=T, length=L, point_turns=point_turns, rotation_deg=math.degrees(rot))
 
@@ -203,22 +251,29 @@ class Lattice:
         idx_R = {1: len(self.prims[0]) - 2, -1: len(self.prims[0]) - 1}
         acts, h = [], h0
         for a, b in zip(path[:-1], path[1:]):
-            want = DIRS.index((int(np.sign(b[0] - a[0])), int(np.sign(b[1] - a[1]))))
-            diff = (want - h) % 8
-            s = 1 if diff <= 4 else -1
-            for _ in range(diff if s == 1 else 8 - diff):
+            want_vec = (int(np.sign(b[0] - a[0])), int(np.sign(b[1] - a[1])))
+            target = self.dirs.index(want_vec)
+            cw_steps = (target - h) % self.heading_count
+            ccw_steps = (h - target) % self.heading_count
+            cw_angle = sum(abs(_turn_angle((h + j) % self.heading_count, 1, self.heading_angles))
+                           for j in range(cw_steps))
+            ccw_angle = sum(abs(_turn_angle((h - j) % self.heading_count, -1, self.heading_angles))
+                            for j in range(ccw_steps))
+            s, nturns = (1, cw_steps) if cw_angle <= ccw_angle else (-1, ccw_steps)
+            for _ in range(nturns):
                 acts.append(((a[0], a[1], h), idx_R[s]))
-                h = (h + s) % 8
+                h = (h + s) % self.heading_count
             acts.append(((a[0], a[1], h), idx_S))
         return acts
 
 
-def grid_astar(lat: Lattice, start, goal, energy=True):
+def grid_astar(lat: Lattice, start, goal, energy=True, cost_lattice=None):
     """8-connected A*. energy=False: distance cost (A*); True: terrain+slope straight energy (TA*)."""
     t0 = time.perf_counter()
     gs = {tuple(start): 0.0}
     parent = {}
     cell = lat.tm.cell
+    edge_lat = cost_lattice or lat
 
     def hfun(x, y):
         if energy:
@@ -237,8 +292,8 @@ def grid_astar(lat: Lattice, start, goal, energy=True):
         if u == tuple(goal):
             break
         x, y = u
-        for h, (dx, dy) in enumerate(DIRS):
-            c = lat.true_cost[h][0][x, y]
+        for h, (dx, dy) in enumerate(GRID_DIRS):
+            c = edge_lat.true_cost[h][0][x, y]
             if not np.isfinite(c):
                 continue
             if not energy:

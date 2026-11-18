@@ -18,21 +18,22 @@ import numpy as np
 from scipy.stats import wilcoxon
 
 from energy_model import TERRAIN_NAMES, Robot, make_map
-from lattice import DIRS, Lattice, grid_astar
+from lattice import Lattice, grid_astar
 
 KINDS = ("flat", "hills", "rocky")
 OURS = "HEA* (ours)"
-METHODS = ("A*", "TA*", "TA*+turn", "HEA*-constmu", OURS)
+METHODS = ("A*", "TA*", "TA*+turn", "HEA*-8", "HEA*-constmu", OURS)
 METRICS = ("energy", "time_s", "length", "point_turns", "rotation_deg", "plan_ms", "expanded")
 
 
-def pick(tm, rng, min_frac=0.6):
+def pick(tm, rng, min_frac=0.6, headings=8):
     n = tm.elev.shape[0]
     free = np.argwhere(tm.free)
     for _ in range(500):
         a, b = free[rng.integers(len(free))], free[rng.integers(len(free))]
         if np.linalg.norm(a - b) >= min_frac * n:
-            return tuple(int(v) for v in a), tuple(int(v) for v in b), int(rng.integers(8))
+            candidates = np.arange(0, headings, 2) if headings == 16 else np.arange(headings)
+            return tuple(int(v) for v in a), tuple(int(v) for v in b), int(rng.choice(candidates))
     return None
 
 
@@ -41,12 +42,13 @@ def run_case(args):
     rng = np.random.default_rng([seed, KINDS.index(kind), idx])
     for _ in range(20):
         tm = make_map(kind, size, rng, rb)
-        ends = pick(tm, rng)
+        ends = pick(tm, rng, headings=16)
         if ends is None:
             continue
         s, g, h0 = ends
-        full = Lattice(tm, rb)
-        path, _ = grid_astar(full, s, g, energy=False)
+        full = Lattice(tm, rb, headings=16)
+        grid_cost = Lattice(tm, rb, arcs=False, headings=8)
+        path, _ = grid_astar(full, s, g, energy=False, cost_lattice=grid_cost)
         if path is None:   # unreachable pair, resample
             continue
         break
@@ -57,15 +59,19 @@ def run_case(args):
 
 def compare(tm, full, s, g, h0, rb, kind, idx):
     """Run every method on one map / start / goal / start heading; all scored with the true model."""
-    lats = {"TA*+turn": Lattice(tm, rb, arcs=False), "HEA*-constmu": Lattice(tm, rb, const_mu=True), OURS: full}
+    grid_cost = Lattice(tm, rb, arcs=False, headings=8)
+    lats = {"TA*+turn": grid_cost,
+            "HEA*-8": Lattice(tm, rb, headings=8),
+            "HEA*-constmu": Lattice(tm, rb, const_mu=True, headings=16), OURS: full}
     rows = []
     for m in METHODS:
         if m in ("A*", "TA*"):
-            p, info = grid_astar(full, s, g, energy=(m == "TA*"))
+            p, info = grid_astar(full, s, g, energy=(m == "TA*"), cost_lattice=grid_cost)
             acts = full.grid_path_to_actions(p, h0) if p else None
             ev = full.evaluate(acts) if acts else None
         else:
-            acts, info = lats[m].plan(s, h0, g)
+            h_start = h0 if lats[m].heading_count == 16 else h0 // 2
+            acts, info = lats[m].plan(s, h_start, g)
             ev = lats[m].evaluate(acts) if acts else None   # true model in every lattice
         r = dict(map=kind, map_id=idx, method=m, success=ev is not None,
                  plan_ms=info["time_ms"], expanded=info["expanded"])
@@ -125,8 +131,9 @@ def plot_example(size, seed, rb, out):
     """Illustration only: one 'hills' map with the paths of three planners."""
     rng = np.random.default_rng(seed)
     tm = make_map("hills", size, rng, rb)
-    s, g, h0 = pick(tm, rng)
-    full = Lattice(tm, rb)
+    s, g, h0 = pick(tm, rng, headings=16)
+    full = Lattice(tm, rb, headings=16)
+    grid_cost = Lattice(tm, rb, arcs=False, headings=8)
     fig, axes = plt.subplots(1, 2, figsize=(12, 5.5))
     cmap = matplotlib.colors.ListedColormap(["#d9d9d9", "#a1d99b", "#bcbddc", "#fdd49e"])
     axes[0].imshow(np.where(tm.free, tm.terrain, np.nan).T, origin="lower", cmap=cmap, vmin=-0.5, vmax=3.5)
@@ -138,7 +145,7 @@ def plot_example(size, seed, rb, out):
         if m == OURS:
             acts, _ = full.plan(s, h0, g)
         else:
-            p, _ = grid_astar(full, s, g, energy=(m == "TA*"))
+            p, _ = grid_astar(full, s, g, energy=(m == "TA*"), cost_lattice=grid_cost)
             acts = full.grid_path_to_actions(p, h0)
         e = full.evaluate(acts)["energy"]
         pts = []

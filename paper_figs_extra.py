@@ -14,8 +14,8 @@ dem_dir, out = sys.argv[1], sys.argv[2]
 os.makedirs(out, exist_ok=True)
 # Fig 4
 fig, axes = plt.subplots(1, 2, figsize=(9, 4.5))
-for ax, h, t in ((axes[0], 0, "heading 0°"), (axes[1], 1, "heading 45°")):
-    for p in primitives(h):
+for ax, h, t in ((axes[0], 0, "heading 0°"), (axes[1], 1, "heading 26.6°")):
+    for p in primitives(h, headings=16):
         S = p["samples"]
         if p["name"] == "R":
             continue
@@ -24,7 +24,7 @@ for ax, h, t in ((axes[0], 0, "heading 0°"), (axes[1], 1, "heading 45°")):
                 label=p["name"] if p["dh"] >= 0 else None)
         ax.plot(*S[-1], "k.", ms=5)
     ax.add_patch(plt.Circle((0, 0), 0.35, fill=False, ls="--", color="gray"))
-    ax.annotate("±45° point turn", (0, 0), (1.5, -1.5) if h == 0 else (3, -0.6), arrowprops=dict(arrowstyle="->"), fontsize=8)
+    ax.annotate("point turn to adjacent heading", (0, 0), (1.5, -1.5) if h == 0 else (3, -0.6), arrowprops=dict(arrowstyle="->"), fontsize=8)
     ax.set_aspect("equal"); ax.grid(alpha=0.3); ax.set_title(t); ax.set_xlabel("x (cells)"); ax.set_ylabel("y (cells)")
 axes[0].legend(fontsize=8, loc="upper left")
 fig.tight_layout(); fig.savefig(os.path.join(out, "fig4_primitives.png"), dpi=200); plt.close(fig)
@@ -38,11 +38,12 @@ rng = np.random.default_rng(5)
 while True:
     tm = RD.crop_map(e1, 80, rng, rb)
     import run_energy as RE
-    ends = RE.pick(tm, rng)
+    ends = RE.pick(tm, rng, headings=16)
     if ends:
         s, g, h0 = ends
-        full = Lattice(tm, rb)
-        if grid_astar(full, s, g, energy=False)[0] is not None:
+        full = Lattice(tm, rb, headings=16)
+        grid_cost = Lattice(tm, rb, arcs=False, headings=8)
+        if grid_astar(full, s, g, energy=False, cost_lattice=grid_cost)[0] is not None:
             break
 fig, axes = plt.subplots(1, 2, figsize=(12, 5.5))
 cmap = matplotlib.colors.ListedColormap(["#d9d9d9", "#a1d99b", "#bcbddc", "#fdd49e"])
@@ -53,7 +54,7 @@ for m, col in (("A*", "tab:blue"), ("TA*", "tab:orange"), ("HEA* (ours)", "tab:r
     if m == "HEA* (ours)":
         acts, _ = full.plan(s, h0, g)
     else:
-        p, _ = grid_astar(full, s, g, energy=(m == "TA*"))
+        p, _ = grid_astar(full, s, g, energy=(m == "TA*"), cost_lattice=grid_cost)
         acts = full.grid_path_to_actions(p, h0)
     ev = full.evaluate(acts)
     xs = np.concatenate([x + full.prims[h][pi]["samples"][:, 0] for (x, y, h), pi in acts])
