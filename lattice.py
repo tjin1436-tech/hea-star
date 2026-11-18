@@ -26,8 +26,12 @@ from energy_model import G, Robot, rotate_energy, track_energy
 DIRS = [(1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1), (0, -1), (1, -1)]
 DIRS16 = [(1, 0), (2, 1), (1, 1), (1, 2), (0, 1), (-1, 2), (-1, 1), (-2, 1),
           (-1, 0), (-2, -1), (-1, -1), (-1, -2), (0, -1), (1, -2), (1, -1), (2, -1)]
+DIRS32 = [(1, 0), (3, 1), (2, 1), (3, 2), (1, 1), (2, 3), (1, 2), (1, 3),
+          (0, 1), (-1, 3), (-1, 2), (-2, 3), (-1, 1), (-3, 2), (-2, 1), (-3, 1),
+          (-1, 0), (-3, -1), (-2, -1), (-3, -2), (-1, -1), (-2, -3), (-1, -2), (-1, -3),
+          (0, -1), (1, -3), (1, -2), (2, -3), (1, -1), (3, -2), (2, -1), (3, -1)]
 GRID_DIRS = DIRS
-DIRECTION_SETS = {8: DIRS, 16: DIRS16}
+DIRECTION_SETS = {8: DIRS, 16: DIRS16, 32: DIRS32}
 STEP = math.pi / 4  # legacy 8-heading step used by the revision scripts
 ARC_SCALES = (1, 2, 4, 8)
 SAMPLE_DS = 0.1             # sampling interval (cells) for edge-cost integration and collision checking
@@ -92,7 +96,7 @@ def _bezier_radii(p1, th0, th1, n):
 def primitives(h, arcs=True, headings=8):
     """Create primitives for one heading; arc costs use local curve curvature."""
     if headings not in DIRECTION_SETS:
-        raise ValueError("headings must be 8 or 16")
+        raise ValueError("headings must be 8, 16, or 32")
     directions = DIRECTION_SETS[headings]
     angles = _heading_angles(directions)
     d = np.array(directions[h])
@@ -126,7 +130,7 @@ class Lattice:
 
     def __init__(self, tm, rb: Robot = Robot(), arcs=True, const_mu=False, headings=8):
         if headings not in DIRECTION_SETS:
-            raise ValueError("headings must be 8 or 16")
+            raise ValueError("headings must be 8, 16, or 32")
         self.tm, self.rb, self.arcs = tm, rb, arcs
         self.heading_count = headings
         self.dirs = DIRECTION_SETS[headings]
