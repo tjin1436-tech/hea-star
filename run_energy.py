@@ -32,7 +32,8 @@ def pick(tm, rng, min_frac=0.6, headings=8):
     for _ in range(500):
         a, b = free[rng.integers(len(free))], free[rng.integers(len(free))]
         if np.linalg.norm(a - b) >= min_frac * n:
-            candidates = np.arange(0, headings, 2) if headings == 16 else np.arange(headings)
+            stride = headings // 8 if headings in (16, 32) else 1
+            candidates = np.arange(0, headings, stride)
             return tuple(int(v) for v in a), tuple(int(v) for v in b), int(rng.choice(candidates))
     return None
 
