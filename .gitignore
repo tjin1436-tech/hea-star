@@ -4,3 +4,4 @@ data/tiles/
 data/worldcover/
 logs/
 .pytest_cache/
+*.bundle

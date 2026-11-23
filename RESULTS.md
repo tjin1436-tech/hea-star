@@ -76,6 +76,8 @@ the number of arcs (−0.54; paper −0.60). It does not correlate with distance
 | 32 vs 16 headings, point turns (κ = 1 / 5) | −1.8 / −2.4 % | −1.6 / −2.4 % |
 | 32 vs 16 headings, with arcs | −1.2 / −3.1 % | −1.1 / −2.8 % |
 | HEA*-32 vs TA*+turn+S | −4.8 / −4.4 % | −5.2 / −4.7 % |
+| Table 19, 320 × 320, 16 headings: precompute / tables / peak memory / plan time | 255 s / 288 MB / 1,033 MB / 2.4–41.6 s | 118 s / 138 MB / 626 MB / 3.2–16.9 s |
+| Table 19: 32 vs 16 headings precomputation | ×3.4 | ×3.1 |
 
 ## Known differences
 
@@ -86,6 +88,7 @@ the number of arcs (−0.54; paper −0.60). It does not correlate with distance
 * **Any-angle paths on DEM crops.** The DEM crops of the re-run have ~95 % traversable cells. Most smoothed and
   Theta*-E paths are one straight segment, so their pure-pursuit overhead on DEM is ~0 %, while the paper
   reports +1–17 %.
-* **Speed.** The re-run implementation is about 2–5× faster than the times reported in the paper (e.g. HEA*
-  ≈ 0.3–0.5 s per query and ≈ 7 s precomputation on 80 × 80 maps, against 1.6 s and 14 s). Table 19 was
-  re-run up to 320 × 320 cells; 500 × 500 needs `--sizes 500` and several hours.
+* **Speed and memory.** The re-run implementation is about 2–5× faster than the times reported in the paper
+  (e.g. HEA* ≈ 0.3–0.5 s per query and ≈ 7 s precomputation on 80 × 80 maps, against 1.6 s and 14 s). It stores
+  one edge table instead of two, so the table sizes are half those of Table 19. Table 19 was re-run up to
+  320 × 320 cells (`results/tables/table19_scaling.csv`); 500 × 500 needs `--sizes 500` and several hours.
