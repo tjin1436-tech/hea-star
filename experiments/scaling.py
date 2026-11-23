@@ -2,8 +2,9 @@
 instances per size (start and goal at least 0.6 N apart), 8, 16 and 32 headings, the same instances for all
 heading sets. Every configuration runs in its own process so that its peak resident memory can be measured.
 
-Usage: python experiments/scaling.py [--sizes 80 160 320 500] [--headings 8 16 32] [--out results]
-The full table takes several hours (the 500 x 500, 32-heading precomputation alone takes ~40 min per instance).
+Usage: python experiments/scaling.py [--sizes 80 160 320 500] [--headings 8 16 32] [--out results] [--merge]
+       (--merge adds the new sizes to an existing results/scaling.csv instead of replacing it)
+The 500 x 500 rows take about 1.5 h on one core: python experiments/scaling.py --sizes 500 --merge
 """
 import os
 os.environ.setdefault("OMP_NUM_THREADS", "1")
@@ -42,6 +43,8 @@ if __name__ == "__main__":
     ap.add_argument("--headings", type=int, nargs="+", default=[8, 16, 32])
     ap.add_argument("--n", type=int, default=3)
     ap.add_argument("--out", default="results")
+    ap.add_argument("--merge", action="store_true",
+                    help="keep the rows of other sizes / heading sets already in <out>/scaling.csv")
     a = ap.parse_args()
     rows = []
     for size in a.sizes:
@@ -52,6 +55,11 @@ if __name__ == "__main__":
                 rows.append(json.loads(r.stdout.strip().splitlines()[-1]))
                 print(rows[-1], flush=True)
     df = pd.DataFrame(rows)
+    old = os.path.join(a.out, "scaling.csv")
+    if a.merge and os.path.exists(old):
+        prev = pd.read_csv(old)
+        keep = ~(prev["size"].isin(df["size"].unique()) & prev["headings"].isin(df["headings"].unique()))
+        df = pd.concat([prev[keep], df]).sort_values(["size", "headings", "idx"]).reset_index(drop=True)
     os.makedirs(os.path.join(a.out, "tables"), exist_ok=True)
     df.to_csv(os.path.join(a.out, "scaling.csv"), index=False)
     t = df.groupby(["size", "headings"]).agg(states=("states", "first"), precompute_s=("precompute_s", "mean"),

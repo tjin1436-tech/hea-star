@@ -77,7 +77,9 @@ the number of arcs (−0.54; paper −0.60). It does not correlate with distance
 | 32 vs 16 headings, with arcs | −1.2 / −3.1 % | −1.1 / −2.8 % |
 | HEA*-32 vs TA*+turn+S | −4.8 / −4.4 % | −5.2 / −4.7 % |
 | Table 19, 320 × 320, 16 headings: precompute / tables / peak memory / plan time | 255 s / 288 MB / 1,033 MB / 2.4–41.6 s | 118 s / 138 MB / 626 MB / 3.2–16.9 s |
-| Table 19: 32 vs 16 headings precomputation | ×3.4 | ×3.1 |
+| Table 19, 500 × 500, 16 headings: precompute / tables / peak memory / plan time | 681 s / 704 MB / 2,307 MB / 70–124 s | 271 s / 336 MB / 1,064 MB / 19–42 s |
+| Table 19, 500 × 500, 32 headings: precompute / tables / peak memory / plan time | 2,292 s / 1,408 MB / 3,773 MB / 145–272 s | 890 s / 671 MB / 1,937 MB / 50–124 s |
+| Table 19: 32 vs 16 headings precomputation (320 / 500 cells) | ×3.4 | ×3.1 / ×3.3 |
 
 ## Known differences
 
@@ -90,5 +92,5 @@ the number of arcs (−0.54; paper −0.60). It does not correlate with distance
   reports +1–17 %.
 * **Speed and memory.** The re-run implementation is about 2–5× faster than the times reported in the paper
   (e.g. HEA* ≈ 0.3–0.5 s per query and ≈ 7 s precomputation on 80 × 80 maps, against 1.6 s and 14 s). It stores
-  one edge table instead of two, so the table sizes are half those of Table 19. Table 19 was re-run up to
-  320 × 320 cells (`results/tables/table19_scaling.csv`); 500 × 500 needs `--sizes 500` and several hours.
+  one edge table instead of two, so the table sizes are half those of Table 19. Table 19 was re-run for all
+  sizes up to 500 × 500 cells (`results/tables/table19_scaling.csv`).

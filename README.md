@@ -66,7 +66,7 @@ python experiments/optimality.py                  # Sec. 6.7: Dijkstra check, he
 python experiments/collision_audit.py             # Sec. 6.7: collision audit at 0.01-cell sampling
 python experiments/discretisation.py              # Table 18
 python experiments/dem_resample.py                # Sec. 6.7: nearest / bilinear / cubic DEM resampling
-python experiments/scaling.py --sizes 80 160 320  # Table 19 (500 x 500 with 32 headings takes hours)
+python experiments/scaling.py                     # Table 19 (~2.5 h; --sizes 500 --merge adds only 500 x 500, ~1.5 h)
 python experiments/figures.py                     # Figs. 2, 3, 4, 5, 7
 ```
 
