@@ -1,4 +1,7 @@
 numpy>=1.24
 scipy>=1.10
+pandas>=2.0
 matplotlib>=3.7
 Pillow>=9.0
+rasterio>=1.3      # ESA WorldCover (DEM experiment only)
+pytest>=7          # tests only

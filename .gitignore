@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+data/tiles/
+data/worldcover/
+logs/
+.pytest_cache/
