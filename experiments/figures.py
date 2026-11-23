@@ -52,7 +52,7 @@ def fig2(out):
               title="(b) energy per metre (dashed: straight)")
     ax[1].legend(fontsize=8)
     fig.tight_layout()
-    fig.savefig(os.path.join(out, "fig2_power_energy.png"), dpi=200)
+    fig.savefig(os.path.join(out, "fig2_power_energy.png"), dpi=200, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -65,7 +65,7 @@ def fig3(out):
     ax.set(xlabel="arc radius R (m)", ylabel="E_arc / E_point-turn+straight", title="45° heading change: arc vs point turn")
     ax.legend(fontsize=8)
     fig.tight_layout()
-    fig.savefig(os.path.join(out, "fig3_arc_vs_point_turn.png"), dpi=200)
+    fig.savefig(os.path.join(out, "fig3_arc_vs_point_turn.png"), dpi=200, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -89,7 +89,7 @@ def fig4(out):
                 va="top", fontsize=7)
     axes[0].legend(fontsize=8, loc="lower left")
     fig.tight_layout()
-    fig.savefig(os.path.join(out, "fig4_primitives.png"), dpi=200)
+    fig.savefig(os.path.join(out, "fig4_primitives.png"), dpi=200, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -127,7 +127,7 @@ def fig5(out, kind="hills", idx=0):
     ax.set_title(f"Synthetic {kind} map (κ = 1). Grey concrete, lilac gravel, green grass, orange sand, black blocked",
                  fontsize=8)
     fig.tight_layout()
-    fig.savefig(os.path.join(out, "fig5_example_synthetic.png"), dpi=200)
+    fig.savefig(os.path.join(out, "fig5_example_synthetic.png"), dpi=200, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -139,7 +139,7 @@ def fig7(out, region="hanksville", idx=0):
         draw_paths(ax, inst, NOMINAL)
         ax.set_title(f"{region}, real elevation (κ = 1), {lab}", fontsize=9)
     fig.tight_layout()
-    fig.savefig(os.path.join(out, "fig7_example_dem.png"), dpi=200)
+    fig.savefig(os.path.join(out, "fig7_example_dem.png"), dpi=200, bbox_inches="tight")
     plt.close(fig)
 
 

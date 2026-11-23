@@ -1,0 +1,12 @@
+data,group,"vs Theta*-E, k=1","vs TA*+turn+S, k=1","vs Theta*-E, k=5","vs TA*+turn+S, k=5"
+Synthetic,flat,-8.6%,-3.5%,-5.0%,-1.1%
+Synthetic,hills,-7.7%,-5.1%,-4.1%,-2.0%
+Synthetic,rocky,-3.4%,-3.7%,-4.2%,-1.1%
+"DEM, synthetic surfaces",flinthills,-15.5%,-3.2%,-5.3%,-2.1%
+"DEM, synthetic surfaces",hanksville,-13.5%,-4.6%,-1.8%,-0.3%
+"DEM, synthetic surfaces",mojave,-19.0%,-3.9%,-11.5%,-1.4%
+"DEM, synthetic surfaces",palouse,-12.5%,-3.4%,-1.5%,-0.8%
+"DEM, WorldCover",flinthills,+0.0%,+0.0%,+2.2%,+2.2%
+"DEM, WorldCover",hanksville,+0.2%,+0.2%,+4.8%,+4.8%
+"DEM, WorldCover",mojave,+0.5%,+0.5%,+3.7%,+3.7%
+"DEM, WorldCover",palouse,-0.1%,-0.1%,+0.5%,+0.5%

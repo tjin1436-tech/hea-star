@@ -1,0 +1,25 @@
+kappa,lattice,case,planner,n,median_excess_pct,p90_excess_pct,worse_than_point_turns
+kappa > 2,8,mismatch,HEA*-8,56,15.4,80.2,38
+kappa > 2,8,mismatch,TA*+turn,56,3.9,15.7,
+kappa > 2,8,conservative,HEA*-8,56,1.5,11.1,0
+kappa > 2,8,conservative,TA*+turn,56,1.5,11.1,
+kappa > 2,16,mismatch,HEA*,56,15.8,53.1,43
+kappa > 2,16,mismatch,TA*+turn-16,56,5.3,19.5,
+kappa > 2,16,conservative,HEA*,56,1.2,9.3,1
+kappa > 2,16,conservative,TA*+turn-16,56,1.6,9.3,
+kappa <= 1,8,mismatch,HEA*-8,35,2.5,4.9,3
+kappa <= 1,8,mismatch,TA*+turn,35,5.5,13.0,
+kappa <= 1,8,conservative,HEA*-8,35,6.0,17.5,1
+kappa <= 1,8,conservative,TA*+turn,35,6.0,17.5,
+kappa <= 1,16,mismatch,HEA*,35,2.2,5.1,3
+kappa <= 1,16,mismatch,TA*+turn-16,35,3.9,5.9,
+kappa <= 1,16,conservative,HEA*,35,5.2,18.0,2
+kappa <= 1,16,conservative,TA*+turn-16,35,5.5,18.0,
+all,8,mismatch,HEA*-8,150,3.6,37.7,62
+all,8,mismatch,TA*+turn,150,4.4,13.4,
+all,8,conservative,HEA*-8,150,4.7,14.2,2
+all,8,conservative,TA*+turn,150,4.8,14.2,
+all,16,mismatch,HEA*,150,3.0,33.6,59
+all,16,mismatch,TA*+turn-16,150,3.7,10.7,
+all,16,conservative,HEA*,150,3.3,13.7,6
+all,16,conservative,TA*+turn-16,150,3.6,13.4,

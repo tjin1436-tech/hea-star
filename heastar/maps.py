@@ -247,7 +247,7 @@ def load_dem_source(name, cache="data", order=1, worldcover=True) -> DemSource:
 
 
 def dem_crop(src: DemSource, size, rng, robot: Robot = Robot(), min_free=0.7, min_relief=2.0, tries=500):
-    """Section 5.2: random size x size crop with >= 70 % traversable cells and >= 2 m relief.
+    """Section 5.2: random size x size crop with >= 70 % traversable cells (in both surface versions) and >= 2 m relief.
     Returns two maps on the same crop: synthetic surfaces and WorldCover surfaces."""
     nx, ny = src.elev.shape
     for _ in range(tries):
@@ -257,7 +257,7 @@ def dem_crop(src: DemSource, size, rng, robot: Robot = Robot(), min_free=0.7, mi
             continue
         free = _border(~steep_mask(z, 1.0, robot.max_grade_deg))
         wc_free = free & ~src.wc_blocked[x:x + size, y:y + size]
-        if free.mean() < min_free:
+        if free.mean() < min_free or wc_free.mean() < min_free:
             continue
         syn = TerrainMap(z, synthetic_surfaces((size, size), rng), free, 1.0, src.region.name)
         wc = TerrainMap(z, src.wc_surface[x:x + size, y:y + size].copy(), wc_free, 1.0, src.region.name)
@@ -282,6 +282,8 @@ def pick_endpoints(tm: TerrainMap, rng, min_frac=0.6, tries=1000, extra_free=Non
     free = tm.free if extra_free is None else (tm.free & extra_free)
     cells = np.argwhere(free)
     n = tm.shape[0]
+    if len(cells) < 2:
+        return None
     for _ in range(tries):
         a, b = cells[rng.integers(len(cells))], cells[rng.integers(len(cells))]
         a, b = (int(a[0]), int(a[1])), (int(b[0]), int(b[1]))

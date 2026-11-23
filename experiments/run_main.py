@@ -107,12 +107,12 @@ def run_instance(inst, kappas=KAPPAS, planners=PL.PLANNERS, track=True, headings
 def job(args):
     data, group, idx, cache = args
     t0 = time.time()
-    if data == "synthetic":
-        insts = [I.synthetic(group, idx)]
-    else:
-        insts = list(I.dem(group, idx, cache=cache))
     rows, use = [], []
     try:
+        if data == "synthetic":
+            insts = [I.synthetic(group, idx)]
+        else:
+            insts = list(I.dem(group, idx, cache=cache))
         for inst in insts:
             r, u = run_instance(inst)
             rows += r

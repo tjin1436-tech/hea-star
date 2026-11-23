@@ -1,0 +1,6 @@
+planner,plan_ms,precompute_s,table_mb
+HEA*,296.4,7.0,8.6
+HEA*-32,699.8,23.7,17.2
+TA*+turn+S,195.5,2.1,4.3
+TA*+turn-16,112.5,7.0,8.6
+TA*+turn-32,249.6,23.7,17.2

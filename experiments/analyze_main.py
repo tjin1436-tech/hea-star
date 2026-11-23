@@ -151,7 +151,8 @@ def main(res, figs):
                     sub = T.xs((data, kappa), level=("data", "kappa"))
                     if comp[0] == "over":
                         pl = E.xs((data, kappa), level=("data", "kappa"))[comp[1]]
-                        v = float(np.median((sub[comp[1]] / pl - 1) * 100))
+                        ok = pl > ST.TIE                 # zero-energy (all-downhill) instances excluded
+                        v = float(np.median((sub[comp[1]][ok] / pl[ok] - 1) * 100))
                     else:
                         v = ST.median_change(sub["HEA*"], sub[comp[1]])[0]
                     r[f"{data}, k={kappa:g}"] = f"{v:+.1f}%"
@@ -229,7 +230,7 @@ def fig6(E, figs):
     axes[0].set_ylabel("energy change of HEA* (%)")
     axes[0].legend(loc="lower right")
     fig.tight_layout()
-    fig.savefig(os.path.join(figs, "fig6_energy_change.png"), dpi=200)
+    fig.savefig(os.path.join(figs, "fig6_energy_change.png"), dpi=200, bbox_inches="tight")
     print(f"saved {figs}/fig6_energy_change.png")
 
 

@@ -1,0 +1,3 @@
+headings,instances,max_rel_diff,states_checked,violations,h_ratio_median,exp_hea,exp_dijkstra,fewer_expansions_pct
+8,30,0.0,245816,0,0.22168585579769012,126200,177474,28.89099248340602
+16,30,0.0,491632,0,0.2339463738329664,238443,348621,31.603948127049144

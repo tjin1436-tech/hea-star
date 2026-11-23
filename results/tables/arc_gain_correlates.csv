@@ -1,0 +1,6 @@
+feature,spearman_rho,p
+share of path on arcs,-0.61,7.1e-17
+number of arcs,-0.54,1.5e-12
+start-goal distance,-0.08,3.3e-01
+relief,-0.11,1.9e-01
+sand+grass share of path,-0.1,2.4e-01

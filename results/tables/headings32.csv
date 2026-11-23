@@ -1,0 +1,13 @@
+kappa,comparison,median,lower,tied,higher
+1.0,TA*+turn-32 vs TA*+turn-16,-1.6%,148,2,0
+1.0,HEA*-32 vs HEA*,-1.1%,145,0,5
+1.0,HEA*-32 vs TA*+turn-32,-1.4%,150,0,0
+1.0,HEA* vs TA*+turn-16,-1.9%,146,4,0
+1.0,HEA*-32 vs TA*+turn+S,-5.2%,149,0,1
+1.0,HEA* vs TA*+turn+S,-4.2%,144,0,6
+5.0,TA*+turn-32 vs TA*+turn-16,-2.4%,149,1,0
+5.0,HEA*-32 vs HEA*,-2.8%,148,0,2
+5.0,HEA*-32 vs TA*+turn-32,-0.8%,114,36,0
+5.0,HEA* vs TA*+turn-16,+0.0%,36,114,0
+5.0,HEA*-32 vs TA*+turn+S,-4.7%,132,0,18
+5.0,HEA* vs TA*+turn+S,-1.6%,97,0,53

@@ -1,0 +1,4 @@
+manoeuvre,model_kJ_per_rad,ratio_measured_to_model
+Point turn,0.51,10.3
+"Arc, R = 1 m",0.75,6.9
+"Arc, R = 3 m",1.02,5.1

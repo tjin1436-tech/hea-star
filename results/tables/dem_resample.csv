@@ -1,0 +1,4 @@
+resampling,instances,mean_slope_deg,p95_slope_deg,steep_share_pct,hea8_vs_ta,turn_vs_ta,arcs_hea8_vs_turn
+nearest,89,5.4,13.6,4.2,-22.0%,-19.6%,-1.6%
+bilinear,100,4.9,9.0,0.8,-17.6%,-15.0%,-2.1%
+cubic,100,4.9,9.1,0.8,-17.3%,-15.1%,-2.1%
