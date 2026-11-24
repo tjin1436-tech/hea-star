@@ -1,4 +1,4 @@
-"""Figures 2, 3, 4, 5 and 7 of the paper (Fig. 6 is drawn by analyze_main.py).
+"""Figures 1, 2, 3, 4, 5 and 7 of the paper (Fig. 6 is drawn by analyze_main.py).
 
 Usage: python experiments/figures.py [--out figures] [--fig5 hills 0] [--fig7 hanksville 0]
 """
@@ -20,10 +20,41 @@ from heastar import planners as PL          # noqa: E402
 from heastar.energy import NOMINAL, SURFACES, arc_vs_point_ratio  # noqa: E402
 from heastar.lattice import make_primitives  # noqa: E402
 
+TEXT_W = 5.67   # text width of the Robotica template (in)
 SURF_COL = {"concrete": "#d4d4d4", "gravel": "#b9b8e0", "grass": "#9fd89a", "sand": "#fdd29b"}
 LINE_COL = {"concrete": "tab:blue", "grass": "tab:orange", "gravel": "tab:green", "sand": "tab:red"}
 PATH_STYLE = {"A*": ("tab:blue", "-"), "TA*": ("tab:orange", "-"), "Theta*-E": ("tab:green", "-"),
               "TA*+turn+S": ("tab:purple", "--"), "HEA*": ("tab:red", "-")}
+
+
+def fig1(out):
+    """Fig. 1: overview of the framework, drawn at the printed size (full text width)."""
+    from matplotlib.patches import FancyBboxPatch
+    boxes = [("Inputs", ["elevation map", "surface classes", "obstacles", "(C-space)", "robot parameters",
+                         "$m, B, L, \\eta$"]),
+             ("Energy model\n(Sec. 3)", ["rolling + grade", "turning moment", "$M(R)$", "inner-track", "braking (no",
+                                         "regeneration)"]),
+             ("Edge-cost tables\n(Sec. 4.2)", ["$E[h][p][x, y]$ for", "straight moves,", "4 arc sizes,",
+                                               "point turns"]),
+             ("HEA* search\n(Sec. 4.3\u20134.4)", ["state $(x, y, \\theta)$", "consistent energy", "heuristic"]),
+             ("Output", ["minimum-energy", "path within", "the lattice", "(straight, arcs,", "point turns)"])]
+    W, H = TEXT_W, 1.75
+    fig = plt.figure(figsize=(W, H))
+    ax = fig.add_axes([0, 0, 1, 1]); ax.set_xlim(0, W); ax.set_ylim(0, H); ax.set_axis_off()
+    n, gap = len(boxes), 0.17
+    bw = (W - 0.04 - gap * (n - 1)) / n
+    for i, (title, lines) in enumerate(boxes):
+        x0 = 0.02 + i * (bw + gap)
+        ax.add_patch(FancyBboxPatch((x0, 0.04), bw, H - 0.08, boxstyle="round,pad=0,rounding_size=0.05",
+                                    fc="#eef3fb", ec="#3a6fb0", lw=0.9))
+        ax.text(x0 + bw / 2, H - 0.13, title, ha="center", va="top", fontsize=7.8, fontweight="bold",
+                linespacing=1.15)
+        ax.text(x0 + bw / 2, 0.68, "\n".join(lines), ha="center", va="center", fontsize=7.5, linespacing=1.3)
+        if i < n - 1:
+            ax.annotate("", xy=(x0 + bw + gap - 0.01, H / 2), xytext=(x0 + bw + 0.01, H / 2),
+                        arrowprops=dict(arrowstyle="-|>", color="#3a6fb0", lw=1.0, mutation_scale=8))
+    fig.savefig(os.path.join(out, "fig1_overview.png"), dpi=300)
+    plt.close(fig)
 
 
 def fig2(out):
@@ -103,7 +134,7 @@ def draw_map(ax, tm):
     ax.set_yticks([])
 
 
-def draw_paths(ax, inst, model, planners=tuple(PATH_STYLE)):
+def draw_paths(ax, inst, model, planners=tuple(PATH_STYLE), legend_size=7.5):
     planned = PL.plan_all(inst, model, PL.build_lattices(inst, model), planners)
     res = PL.score(inst, planned, model)
     for name in planners:
@@ -112,34 +143,41 @@ def draw_paths(ax, inst, model, planners=tuple(PATH_STYLE)):
             continue
         Q = P.path_points(pl.elems)
         c, ls = PATH_STYLE[name]
-        ax.plot(Q[:, 0], Q[:, 1], color=c, ls=ls, lw=1.4,
+        ax.plot(Q[:, 0], Q[:, 1], color=c, ls=ls, lw=1.3,
                 label=f"{name}: {res[name]['energy'] / 1e3:.2f} kJ, {res[name]['rotation_deg']:.0f}°")
-    ax.plot(*inst.start, "*", color="darkred", ms=11)
-    ax.plot(*inst.goal, "o", color="limegreen", mec="darkgreen", ms=7)
-    ax.legend(fontsize=7, loc="upper left")
+    ax.plot(*inst.start, "*", color="darkred", ms=9)
+    ax.plot(*inst.goal, "o", color="limegreen", mec="darkgreen", ms=6)
+    ax.legend(fontsize=legend_size, loc="lower right", framealpha=0.9, borderpad=0.4, handlelength=1.6,
+              labelspacing=0.3)
+
+
+# Figures 1, 5, 6 and 7 are drawn at the size at which they are printed (text width 409.7 pt = 5.67 in),
+# so that their fonts (7.5-9 pt) match the body text: Fig. 5 at 0.75 of the text width, the others at full width.
 
 
 def fig5(out, kind="hills", idx=0):
     inst = I.synthetic(kind, idx)
-    fig, ax = plt.subplots(figsize=(7, 7))
+    w = 0.75 * TEXT_W
+    fig, ax = plt.subplots(figsize=(w, w + 0.25))
     draw_map(ax, inst.tm)
-    draw_paths(ax, inst, NOMINAL)
-    ax.set_title(f"Synthetic {kind} map (κ = 1). Grey concrete, lilac gravel, green grass, orange sand, black blocked",
-                 fontsize=8)
-    fig.tight_layout()
-    fig.savefig(os.path.join(out, "fig5_example_synthetic.png"), dpi=200, bbox_inches="tight")
+    draw_paths(ax, inst, NOMINAL, legend_size=7.5)
+    ax.set_title(f"Synthetic {kind} map (κ = 1)", fontsize=9)
+    fig.tight_layout(pad=0.3)
+    fig.savefig(os.path.join(out, "fig5_example_synthetic.png"), dpi=300, bbox_inches="tight", pad_inches=0.02)
     plt.close(fig)
 
 
 def fig7(out, region="hanksville", idx=0):
     a, b = I.dem(region, idx)
-    fig, axes = plt.subplots(1, 2, figsize=(13, 6.5))
+    name = {"hanksville": "Hanksville, UT", "mojave": "Mojave, CA", "palouse": "Palouse, WA",
+            "flinthills": "Flint Hills, KS"}.get(region, region)
+    fig, axes = plt.subplots(1, 2, figsize=(TEXT_W, TEXT_W / 2 + 0.2))
     for ax, inst, lab in ((axes[0], a, "synthetic surfaces"), (axes[1], b, "ESA WorldCover surfaces")):
         draw_map(ax, inst.tm)
-        draw_paths(ax, inst, NOMINAL)
-        ax.set_title(f"{region}, real elevation (κ = 1), {lab}", fontsize=9)
-    fig.tight_layout()
-    fig.savefig(os.path.join(out, "fig7_example_dem.png"), dpi=200, bbox_inches="tight")
+        draw_paths(ax, inst, NOMINAL, legend_size=6.5)
+        ax.set_title(f"{name}: {lab}", fontsize=8.5)
+    fig.tight_layout(pad=0.3, w_pad=0.6)
+    fig.savefig(os.path.join(out, "fig7_example_dem.png"), dpi=300, bbox_inches="tight", pad_inches=0.02)
     plt.close(fig)
 
 
@@ -148,10 +186,12 @@ if __name__ == "__main__":
     ap.add_argument("--out", default="figures")
     ap.add_argument("--fig5", nargs=2, default=["hills", "0"])
     ap.add_argument("--fig7", nargs=2, default=["hanksville", "0"])
-    ap.add_argument("--only", nargs="*", default=None, help="subset of 2 3 4 5 7")
+    ap.add_argument("--only", nargs="*", default=None, help="subset of 1 2 3 4 5 7")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
-    todo = set(a.only or ["2", "3", "4", "5", "7"])
+    todo = set(a.only or ["1", "2", "3", "4", "5", "7"])
+    if "1" in todo:
+        fig1(a.out)
     if "2" in todo:
         fig2(a.out)
     if "3" in todo:

@@ -217,7 +217,8 @@ def fig6(E, figs):
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     os.makedirs(figs, exist_ok=True)
-    fig, axes = plt.subplots(1, 3, figsize=(13, 4.2), sharey=True)
+    # drawn at the printed size (full text width, 5.67 in) so that the fonts match the body text
+    fig, axes = plt.subplots(1, 3, figsize=(5.67, 2.7), sharey=True)
     bases = ("TA*", "TA*+S", "Theta*-E", "TA*+turn+S")
     for ax, (data, label) in zip(axes, DATA):
         if data not in E.index.get_level_values(0):
@@ -227,18 +228,22 @@ def fig6(E, figs):
             sub = E.xs((data, kappa), level=("data", "kappa"))
             vals = [((sub["HEA*"] - sub[b]) / sub[b] * 100)[sub[b] > 0].dropna() for b in bases]
             pos = np.arange(len(bases)) * 3 + j
-            bp = ax.boxplot(vals, positions=pos, widths=0.8, showfliers=False, patch_artist=True)
+            bp = ax.boxplot(vals, positions=pos, widths=0.8, showfliers=False, patch_artist=True,
+                            medianprops=dict(color="k", lw=1), boxprops=dict(lw=0.7),
+                            whiskerprops=dict(lw=0.7), capprops=dict(lw=0.7))
             for b in bp["boxes"]:
                 b.set_facecolor(("#7fb2d9", "#e8868a")[j])
             ax.plot([], [], "s", color=("#7fb2d9", "#e8868a")[j], label=f"κ = {kappa:g}")
         ax.axhline(0, color="k", lw=0.6)
         ax.set_xticks(np.arange(len(bases)) * 3 + 0.5)
-        ax.set_xticklabels([f"vs {b}" for b in bases], rotation=20)
-        ax.set_title(f"{label} ({n})", fontsize=10)
-    axes[0].set_ylabel("energy change of HEA* (%)")
-    axes[0].legend(loc="lower right")
-    fig.tight_layout()
-    fig.savefig(os.path.join(figs, "fig6_energy_change.png"), dpi=200, bbox_inches="tight")
+        ax.set_xticklabels([f"vs {b}" for b in bases], rotation=35, ha="right", fontsize=7.5)
+        ax.tick_params(axis="y", labelsize=7.5)
+        ax.set_title(f"{label.replace('DEM, ', 'DEM, ').replace('WorldCover surfaces', 'WorldCover')}\n({n} instances)",
+                     fontsize=8)
+    axes[0].set_ylabel("energy change of HEA* (%)", fontsize=8)
+    axes[0].legend(loc="lower right", fontsize=7.5, handletextpad=0.2, borderpad=0.3)
+    fig.tight_layout(pad=0.3, w_pad=0.5)
+    fig.savefig(os.path.join(figs, "fig6_energy_change.png"), dpi=300)
     print(f"saved {figs}/fig6_energy_change.png")
 
 
