@@ -1,5 +1,7 @@
 # HEA*: The Role of Turning Energy in Path Planning for Tracked Robots
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24490596.svg)](https://doi.org/10.5281/zenodo.24490596)
+
 Code and data for the paper
 
 > J. Tian and J.-w. Kim, "The Role of Turning Energy in Path Planning for Tracked Robots," submitted to *Robotica*.
@@ -109,6 +111,8 @@ on arcs, and the energies after stop-and-turn and pure-pursuit tracking.
 ## Citation
 
 If you use this code, please cite the paper above. The full reference will be added after publication.
+The version used in the paper is release [`v1.0-robotica-submission`](https://github.com/tjin1436-tech/hea-star/releases/tag/v1.0-robotica-submission),
+archived on Zenodo: [doi:10.5281/zenodo.24490596](https://doi.org/10.5281/zenodo.24490596).
 
 ## License
 
