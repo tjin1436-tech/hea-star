@@ -3,7 +3,7 @@
 For a comparison of HEA* (or any planner) with a baseline on paired instances:
   * median relative energy change (E - E_base) / E_base with a 95 % percentile-bootstrap CI (5000 resamples);
     instances whose baseline energy is zero are excluded from relative changes
-  * Hodges-Lehmann estimate of the paired difference (J) with a 95 % bootstrap CI (2000 resamples)
+  * Hodges-Lehmann estimate of the paired difference (J) with a 95 % bootstrap CI (5000 resamples)
   * matched-pairs rank-biserial correlation r, computed on the non-tied pairs
   * two-sided Wilcoxon signed-rank test that keeps ties and splits their ranks (zero_method="zsplit"),
     with Holm correction over the baselines of each data set and model scenario
@@ -44,7 +44,7 @@ def wilcoxon_p(a, b):
     return float(wilcoxon(a, b, zero_method="zsplit").pvalue)
 
 
-def paired(e_ours, e_base, seed=0, B_rel=5000, B_hl=2000):
+def paired(e_ours, e_base, seed=0, B_rel=5000, B_hl=5000):
     a = np.asarray(e_base, float)
     o = np.asarray(e_ours, float)
     d = o - a

@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+title: "HEA*: code and results for 'The Role of Turning Energy in Path Planning for Tracked Robots'"
+type: software
+authors:
+  - family-names: Tian
+    given-names: Jin
+    affiliation: "Department of Computer Science and Technology, Graduate School, Youngsan University"
+  - family-names: Kim
+    given-names: Jin-whan
+    affiliation: "Department of Computer Engineering, Youngsan University"
+    orcid: "https://orcid.org/0000-0002-1912-0657"
+repository-code: "https://github.com/tjin1436-tech/hea-star"
+license: MIT
+keywords:
+  - tracked robot
+  - skid steering
+  - energy-aware path planning
+  - state lattice
+  - turning energy
+  - any-angle planning

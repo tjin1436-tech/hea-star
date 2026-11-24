@@ -2,7 +2,7 @@
 
 Code and data for the paper
 
-> J. Tian and J. Kim, "The Role of Turning Energy in Path Planning for Tracked Robots," submitted to *Robotica*.
+> J. Tian and J.-w. Kim, "The Role of Turning Energy in Path Planning for Tracked Robots," submitted to *Robotica*.
 
 HEA* (Heading-lattice Energy A*) plans paths for skid-steer tracked robots on an (x, y, θ) lattice with
 16 headings. Its motion primitives are straight moves, point turns and Bézier arcs of four sizes. Each primitive

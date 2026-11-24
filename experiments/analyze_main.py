@@ -160,6 +160,14 @@ def main(res, figs):
     t13 = pd.DataFrame(t13)
     t13.to_csv(os.path.join(out, "table13_tracking.csv"), index=False)
     show("Table 13: path tracking", t13)
+    # supplementary: median tracking overhead (tracked / planned energy - 1) of all nine planners
+    ov = df[df.energy > ST.TIE].assign(stop_and_turn=lambda d: (d.st_energy / d.energy - 1) * 100,
+                                       pure_pursuit=lambda d: (d.pp_energy / d.energy - 1) * 100)
+    ov = ov.pivot_table(index="planner", columns=["data", "kappa"], values=["stop_and_turn", "pure_pursuit"],
+                        aggfunc="median").reindex(PLANNERS).round(1)
+    ov.columns = [f"{c}, {d}, k={k:g}" for c, d, k in ov.columns]
+    ov.to_csv(os.path.join(out, "tracking_overhead_all_planners.csv"))
+    show("Median tracking overhead (%) of all nine planners", ov.reset_index())
     coll = df.groupby(["data", "planner"])[["st_collision", "pp_collision"]].agg(
         lambda c: int((c.astype(str) == "True").sum()))
     coll.to_csv(os.path.join(out, "tracking_collisions.csv"))
